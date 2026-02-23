@@ -1,171 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SVP Medicare LLP | Pharmaceutical Distributor</title>
+
+<title>SVP Medicare LLP | Abbott Distributor Hyderabad | Pharma Supplier India</title>
+
+<meta name="description" content="SVP Medicare LLP is a trusted Abbott distributor in Hyderabad supplying OTC, pharma and healthcare products across India to hospitals, pharmacies and institutions.">
+<meta name="keywords" content="Abbott distributor Hyderabad, pharma distributor India, OTC supplier, SVP Medicare LLP, pharmaceutical distributor Hyderabad">
+<meta name="author" content="SVP Medicare LLP">
+
+<link rel="icon" href="favicon.png" type="image/png">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Montserrat,sans-serif;background:#f9fbfd;color:#1e1e1e;line-height:1.6}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Montserrat,sans-serif;background:#f9fbfd;color:#1e1e1e}
 
-/* HEADER */
+/* GLASS HEADER */
 header{
-background:#ffffff;
+position:sticky;top:0;z-index:1000;
+backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.75);
 padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-position:sticky;top:0;z-index:1000
+display:flex;justify-content:space-between;align-items:center;
+box-shadow:0 4px 20px rgba(0,0,0,0.05)
 }
 header img{height:60px}
-nav a{
-margin-left:30px;
-text-decoration:none;
-color:#1e1e1e;
-font-weight:500;
-transition:.3s
-}
-nav a:hover{color:#0056b3}
+nav a{margin-left:30px;text-decoration:none;color:#003566;font-weight:600}
 
 /* HERO */
 .hero{
-display:flex;
-justify-content:space-between;
-align-items:center;
+display:flex;justify-content:space-between;align-items:center;
 padding:120px 8%;
 background:linear-gradient(135deg,#003566,#001d3d);
 color:#fff
 }
-.hero-text{max-width:600px}
-.hero h1{font-size:3rem;font-weight:700;margin-bottom:20px}
-.hero p{font-size:1.1rem;margin-bottom:30px;color:#dbe7ff}
+.hero h1{font-size:3rem;margin-bottom:20px}
+.hero p{color:#dbe7ff;margin-bottom:30px}
 .hero button{
-background:#ffffff;
-color:#003566;
-border:none;
-padding:14px 28px;
-border-radius:30px;
-font-weight:600;
-cursor:pointer;
-transition:.3s
+background:#fff;color:#003566;border:none;
+padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer
 }
-.hero button:hover{transform:translateY(-3px)}
-
-.hero-image img{
-width:420px;
-border-radius:20px;
-box-shadow:0 10px 40px rgba(0,0,0,0.4)
-}
+.hero img{width:420px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.4)}
 
 /* SECTION */
 .section{padding:90px 8%}
-.section h2{
-text-align:center;
-font-size:2.2rem;
-margin-bottom:50px;
-color:#003566
+.section h2{text-align:center;font-size:2.2rem;margin-bottom:50px;color:#003566}
+
+/* COUNTER */
+.stats{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;text-align:center
 }
+.stat{
+background:#fff;padding:40px;border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.06)
+}
+.stat h3{font-size:2rem;color:#003566}
 
 /* PRODUCTS */
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px
+display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px
 }
 .card{
-background:#fff;
-border-radius:18px;
+background:#fff;border-radius:18px;padding:20px;text-align:center;
 box-shadow:0 8px 25px rgba(0,0,0,0.06);
-padding:20px;
-text-align:center;
 transition:.3s
 }
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 12px 35px rgba(0,0,0,0.12)
-}
-.card img{
-width:100%;
-border-radius:12px;
-margin-bottom:15px
-}
-.card h3{font-size:1rem;color:#003566}
+.card:hover{transform:translateY(-10px);box-shadow:0 15px 35px rgba(0,0,0,0.12)}
+.card img{width:100%;border-radius:12px;margin-bottom:15px}
 
-/* BULK FORM */
-.form-box{
-max-width:600px;
-margin:auto;
-background:#fff;
-padding:40px;
-border-radius:18px;
-box-shadow:0 10px 35px rgba(0,0,0,0.08)
-}
-.form-box input,.form-box textarea{
-width:100%;
-padding:14px;
-margin:10px 0;
-border:1px solid #ddd;
-border-radius:8px;
-font-size:1rem
-}
-.form-box button{
-background:#003566;
-color:#fff;
-border:none;
-padding:14px;
-border-radius:8px;
-width:100%;
-font-weight:600;
-cursor:pointer
-}
+/* TABLE */
+.table-box{overflow-x:auto;background:#fff;padding:30px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
+table{width:100%;border-collapse:collapse}
+table th,table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
+table th{background:#003566;color:#fff}
+
+/* FORM */
+.form-box{max-width:600px;margin:auto;background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
+.form-box input,.form-box textarea{width:100%;padding:14px;margin:10px 0;border:1px solid #ddd;border-radius:8px}
+.form-box button{background:#003566;color:#fff;border:none;padding:14px;border-radius:8px;width:100%}
 
 /* CONTACT */
-.contact-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px
-}
-.contact-box{
-background:#fff;
-padding:40px;
-border-radius:18px;
-box-shadow:0 10px 35px rgba(0,0,0,0.08)
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-box{background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
+
+/* DOWNLOAD */
+.download{text-align:center;margin-top:40px}
+.download a{
+background:#003566;color:#fff;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:600
 }
 
 /* FOOTER */
-footer{
-background:#001d3d;
-color:#fff;
-text-align:center;
-padding:25px
-}
+footer{background:#001d3d;color:#fff;text-align:center;padding:25px}
 
 /* WHATSAPP */
 .whatsapp-float{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:#fff;
-width:65px;height:65px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-box-shadow:0 6px 20px rgba(0,0,0,0.3);
-text-decoration:none
+position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;
+width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 }
 
-/* MOBILE */
+/* ANIMATION */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s}
+.reveal.active{opacity:1;transform:none}
+
 @media(max-width:900px){
 .hero{flex-direction:column;text-align:center}
-.hero-image img{margin-top:40px;width:300px}
+.hero img{margin-top:40px;width:300px}
 .contact-grid{grid-template-columns:1fr}
 }
 </style>
@@ -183,20 +129,24 @@ text-decoration:none
 </header>
 
 <section class="hero">
-<div class="hero-text">
+<div>
 <h1>Trusted Pharmaceutical Distribution Across India</h1>
 <p>SVP Medicare LLP is a premium pharmaceutical distributor supplying Abbott OTC and healthcare products to hospitals, pharmacies and institutions nationwide.</p>
 <a href="#bulk"><button>Request Bulk Supply</button></a>
 </div>
-
-<div class="hero-image">
 <img src="https://images.unsplash.com/photo-1588776814546-ec7e7c1cbd30?auto=format&fit=crop&w=900&q=80">
+</section>
+
+<section class="section reveal">
+<div class="stats">
+<div class="stat"><h3 class="counter">500+</h3><p>Clients</p></div>
+<div class="stat"><h3>Pan India</h3><p>Supply Network</p></div>
+<div class="stat"><h3>Abbott</h3><p>OTC Portfolio</p></div>
 </div>
 </section>
 
-<section class="section" id="products">
+<section class="section reveal" id="products">
 <h2>Our Key Products</h2>
-
 <div class="products">
 <div class="card"><img src="product2.png"><h3>New Safexim 200</h3></div>
 <div class="card"><img src="product3.png"><h3>New Tixylix DX</h3></div>
@@ -207,11 +157,28 @@ text-decoration:none
 </div>
 </section>
 
-<section class="section" id="bulk">
-<h2>Bulk Order Enquiry</h2>
+<section class="section reveal">
+<h2>OTC Product List</h2>
+<div class="table-box">
+<table>
+<tr><th>Product</th><th>Category</th><th>Availability</th></tr>
+<tr><td>Limcee Zinc</td><td>Vitamin C</td><td>In Stock</td></tr>
+<tr><td>Tixylix DX</td><td>Cough Syrup</td><td>In Stock</td></tr>
+<tr><td>Digene</td><td>Antacid</td><td>In Stock</td></tr>
+<tr><td>ORS</td><td>Electrolyte</td><td>In Stock</td></tr>
+</table>
+</div>
 
+<div class="download">
+<a href="company-profile.pdf" download>Download Company Profile</a>
+</div>
+</section>
+
+<section class="section reveal" id="bulk">
+<h2>Bulk Order Enquiry</h2>
 <div class="form-box">
 <form action="https://formsubmit.co/info@svpmedicare.com" method="POST">
+<input type="hidden" name="_next" value="https://svpmedicare.github.io/thankyou.html">
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Your Email" required>
 <input type="text" name="phone" placeholder="Phone Number" required>
@@ -221,28 +188,22 @@ text-decoration:none
 </div>
 </section>
 
-<section class="section" id="contact">
+<section class="section reveal" id="contact">
 <h2>Contact Information</h2>
-
 <div class="contact-grid">
 <div class="contact-box">
 <p><strong>Phone:</strong> 9390494784</p>
 <p><strong>Email:</strong> info@svpmedicare.com</p>
-
-<p>
-SVP Medicare LLP<br>
+<p>SVP Medicare LLP<br>
 4th Floor, Plot No.21&22, Telecom Nagar,<br>
 Trendz Dwaraka, Gachibowli,<br>
-Hyderabad - 500032
-</p>
-
+Hyderabad - 500032</p>
 <p><strong>GST:</strong> XXXXXXXXXX</p>
 <p><strong>Drug License:</strong> XXXXXXXXXX</p>
 </div>
 
 <div class="contact-box">
-<iframe
-src="https://www.google.com/maps?q=Trendz+Dwaraka+Telecom+Nagar+Gachibowli+Hyderabad+500032&output=embed"
+<iframe src="https://www.google.com/maps?q=Trendz+Dwaraka+Telecom+Nagar+Gachibowli+Hyderabad+500032&output=embed"
 width="100%" height="350" style="border:0;border-radius:15px"></iframe>
 </div>
 </div>
@@ -255,6 +216,17 @@ width="100%" height="350" style="border:0;border-radius:15px"></iframe>
 <a href="https://wa.me/919390494784" class="whatsapp-float" target="_blank">
 <i class="fab fa-whatsapp"></i>
 </a>
+
+<script>
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+for(let r of reveals){
+let windowHeight=window.innerHeight;
+let elementTop=r.getBoundingClientRect().top;
+if(elementTop<windowHeight-100){r.classList.add("active")}
+}
+});
+</script>
 
 </body>
 </html>
