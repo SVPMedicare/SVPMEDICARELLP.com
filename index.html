@@ -1,332 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVP Medicare LLP | Abbott Super Distributor Hyderabad</title>
 
-<title>SVP Medicare LLP | Abbott Distributor Hyderabad | Pharma Supplier India</title>
-
-<meta name="description" content="SVP Medicare LLP is a trusted Abbott distributor in Hyderabad supplying OTC, pharma and healthcare products across India to hospitals, pharmacies and institutions.">
-<meta name="keywords" content="Abbott distributor Hyderabad, pharma distributor India, OTC supplier, SVP Medicare LLP, pharmaceutical distributor Hyderabad">
-<meta name="author" content="SVP Medicare LLP">
-
-<link rel="icon" href="favicon.png" type="image/png">
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="icon" href="favicon.png">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:Montserrat,sans-serif;background:#f9fbfd;color:#1e1e1e}
-
-/* SCROLL BAR */
-#progressBar{
-position:fixed;top:0;left:0;height:4px;background:#003566;width:0%;z-index:9999
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#0b0f19;color:#fff;scroll-behavior:smooth}
 
 /* LOADER */
-#loader{
-position:fixed;width:100%;height:100%;background:#fff;
-z-index:9999;display:flex;align-items:center;justify-content:center
-}
-.spinner{
-width:50px;height:50px;border:5px solid #eee;
-border-top:5px solid #003566;border-radius:50%;
-animation:spin 1s linear infinite
-}
-@keyframes spin{100%{transform:rotate(360deg)}}
+#page-loader{
+position:fixed;inset:0;background:#0b0f19;display:flex;align-items:center;justify-content:center;z-index:9999}
+.loader-ring{
+width:70px;height:70px;border:6px solid rgba(255,255,255,0.1);
+border-top:6px solid #00e5ff;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* SCROLL BAR */
+#scroll-progress{
+position:fixed;top:0;left:0;height:4px;width:0%;
+background:linear-gradient(90deg,#00e5ff,#0072ff);z-index:9999}
 
 /* GLASS HEADER */
 header{
-position:sticky;top:0;z-index:1000;
-backdrop-filter:blur(12px);
-background:rgba(255,255,255,0.75);
-padding:18px 8%;
-display:flex;justify-content:space-between;align-items:center;
-box-shadow:0 4px 20px rgba(0,0,0,0.05)
-}
-header img{height:60px}
-nav a{
-margin-left:30px;text-decoration:none;color:#003566;font-weight:600;
-position:relative
-}
-nav a::after{
-content:'';position:absolute;width:0;height:2px;
-left:0;bottom:-6px;background:#003566;transition:.3s
-}
-nav a:hover::after{width:100%}
+position:sticky;top:0;
+backdrop-filter:blur(14px);
+background:rgba(255,255,255,0.05);
+border-bottom:1px solid rgba(255,255,255,0.1);
+z-index:1000;
+padding:12px 40px;
+display:flex;align-items:center;justify-content:space-between}
+
+header img{height:45px}
+nav a{color:#fff;margin-left:20px;text-decoration:none;font-size:14px}
 
 /* HERO */
 .hero{
-display:flex;justify-content:space-between;align-items:center;
-padding:120px 8%;
-background:linear-gradient(135deg,#003566,#001d3d);
-color:#fff
-}
-.hero h1{font-size:3rem;margin-bottom:20px}
-.hero p{color:#dbe7ff;margin-bottom:30px}
-.hero button{
-background:#fff;color:#003566;border:none;
-padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer
-}
-.hero img{width:420px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.4)}
-
-/* BADGE */
-.badge{
-text-align:center;background:#e6f0ff;color:#003566;
-padding:14px;font-weight:600;margin:40px auto;
-width:max-content;border-radius:30px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08)
+display:flex;align-items:center;justify-content:space-between;
+padding:80px 40px;
+min-height:100vh;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,229,255,0.08), transparent 40%),
+radial-gradient(circle at 80% 30%, rgba(0,114,255,0.08), transparent 40%);
 }
 
-/* TRUST STRIP */
-.trust-strip{
-display:flex;justify-content:center;gap:40px;
-flex-wrap:wrap;padding:30px 8%;
-background:#f1f5fb;font-weight:600;color:#003566
+.hero img{
+width:420px;max-width:100%;border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
 }
 
-/* SECTION */
-.section{padding:90px 8%}
-.section h2{text-align:center;font-size:2.2rem;margin-bottom:50px;color:#003566}
+/* BUTTON */
+.btn{
+display:inline-block;margin-top:20px;padding:12px 26px;
+background:linear-gradient(90deg,#00e5ff,#0072ff);
+border-radius:30px;color:#fff;text-decoration:none}
 
 /* COUNTER */
 .stats{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;text-align:center
-}
-.stat{
-background:#fff;padding:40px;border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,0.06)
-}
-.stat h3{font-size:2rem;color:#003566}
+display:flex;gap:40px;padding:60px 40px;background:#070b13}
+.stat h2{font-size:36px;color:#00e5ff}
+.stat p{font-size:14px}
 
-/* PRODUCTS */
+/* BRANDS STRIP */
+.brands{
+overflow:hidden;white-space:nowrap;background:#050810;padding:20px}
+.brands img{
+height:40px;margin:0 40px;animation:scroll 15s linear infinite}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+/* PRODUCT CARDS */
 .products{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px
-}
+display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;padding:60px 40px}
+
 .card{
-background:#fff;border-radius:18px;padding:20px;text-align:center;
-box-shadow:0 8px 25px rgba(0,0,0,0.06);
-transition:.3s
-}
-.card:hover{transform:translateY(-10px);box-shadow:0 15px 35px rgba(0,0,0,0.12)}
-.card img{width:100%;border-radius:12px;margin-bottom:15px}
+background:#111827;padding:20px;border-radius:16px;
+transition:0.3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.4)}
+.card img{width:100%;border-radius:12px}
 
 /* TABLE */
-.table-box{overflow-x:auto;background:#fff;padding:30px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
-table{width:100%;border-collapse:collapse}
-table th,table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
-table th{background:#003566;color:#fff}
-
-/* FORM */
-.form-box{max-width:600px;margin:auto;background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
-.form-box input,.form-box textarea{width:100%;padding:14px;margin:10px 0;border:1px solid #ddd;border-radius:8px}
-.form-box button{background:#003566;color:#fff;border:none;padding:14px;border-radius:8px;width:100%}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.contact-box{background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
-
-/* DOWNLOAD */
-.download{text-align:center;margin-top:40px}
-.download a{
-background:#003566;color:#fff;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:600
-}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{border:1px solid rgba(255,255,255,0.1);padding:10px;text-align:left}
 
 /* FOOTER */
-footer{background:#001d3d;color:#fff;text-align:center;padding:25px}
-
-/* WHATSAPP */
-.whatsapp-float{
-position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;
-width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
-}
-
-/* CALL BAR */
-.call-bar{
-position:fixed;bottom:0;left:0;width:100%;
-display:flex;z-index:999;background:#003566
-}
-.call-bar a{
-flex:1;text-align:center;color:#fff;
-padding:14px;text-decoration:none;font-weight:600
-}
-.call-bar a:first-child{background:#001d3d}
-
-/* ANIMATION */
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s}
-.reveal.active{opacity:1;transform:none}
-
-@media(max-width:900px){
-.hero{flex-direction:column;text-align:center}
-.hero img{margin-top:40px;width:300px}
-.contact-grid{grid-template-columns:1fr}
-}
+footer{text-align:center;padding:30px;background:#050810;margin-top:40px}
 </style>
 </head>
 
 <body>
 
-<div id="progressBar"></div>
-
-<div id="loader"><div class="spinner"></div></div>
+<div id="page-loader"><div class="loader-ring"></div></div>
+<div id="scroll-progress"></div>
 
 <header>
 <img src="logo.png">
 <nav>
-<a href="#products">Products</a>
-<a href="#bulk">Bulk Orders</a>
-<a href="#contact">Contact</a>
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Contact</a>
 </nav>
 </header>
 
 <section class="hero">
 <div>
-<h1>Trusted Pharmaceutical Distribution Across India</h1>
-<p>SVP Medicare LLP is a premium pharmaceutical distributor supplying Abbott OTC and healthcare products to hospitals, pharmacies and institutions nationwide.</p>
-<a href="#bulk"><button>Request Bulk Supply</button></a>
+<h1>SVP Medicare LLP</h1>
+<p>Abbott Super Distributor | Pharma & OTC Bulk Supplier</p>
+<a href="company-profile.pdf" class="btn" download>Download Company Profile</a>
 </div>
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e7c1cbd30?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.pexels.com/photos/3683074/pexels-photo-3683074.jpeg">
 </section>
 
-<div class="badge reveal">
-<i class="fa fa-certificate"></i> Authorized Abbott OTC Distributor – Hyderabad
-</div>
-
-<div class="trust-strip reveal">
-<span>Supplying to Hospitals</span>
-<span>Pharmacies</span>
-<span>Institutions</span>
-<span>Pan India Network</span>
-</div>
-
-<section class="section reveal">
-<div class="stats">
-<div class="stat"><h3 id="counter">0</h3><p>Clients</p></div>
-<div class="stat"><h3>Pan India</h3><p>Supply Network</p></div>
-<div class="stat"><h3>Abbott</h3><p>OTC Portfolio</p></div>
-</div>
+<section class="stats">
+<div class="stat"><h2 class="counter" data-target="500">0</h2><p>Clients</p></div>
+<div class="stat"><h2 class="counter" data-target="28">0</h2><p>States Supply</p></div>
+<div class="stat"><h2 class="counter" data-target="10000">0</h2><p>Orders Delivered</p></div>
 </section>
 
-<section class="section reveal" id="products">
-<h2>Our Key Products</h2>
-<div class="products">
-<div class="card"><img src="product2.png"><h3>New Safexim 200</h3></div>
-<div class="card"><img src="product3.png"><h3>New Tixylix DX</h3></div>
-<div class="card"><img src="product4.png"><h3>Limcee Zinc</h3></div>
-<div class="card"><img src="product5.png"><h3>Rzole DSR</h3></div>
-<div class="card"><img src="product6.png"><h3>Megamox CV 625</h3></div>
-<div class="card"><img src="product7.png"><h3>Floxip 250</h3></div>
-</div>
+<section class="brands">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abbott_Laboratories_logo.svg/2560px-Abbott_Laboratories_logo.svg.png">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abbott_Laboratories_logo.svg/2560px-Abbott_Laboratories_logo.svg.png">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Abbott_Laboratories_logo.svg/2560px-Abbott_Laboratories_logo.svg.png">
 </section>
 
-<section class="section reveal">
+<section class="products">
+<div class="card"><img src="product2.png"><h3>OTC Product</h3></div>
+<div class="card"><img src="product3.png"><h3>Pharma Product</h3></div>
+<div class="card"><img src="product4.png"><h3>Bulk Supply</h3></div>
+<div class="card"><img src="product5.png"><h3>Distribution</h3></div>
+<div class="card"><img src="product6.png"><h3>Logistics</h3></div>
+<div class="card"><img src="product7.png"><h3>Warehouse</h3></div>
+</section>
+
+<section style="padding:60px 40px">
 <h2>OTC Product List</h2>
-<div class="table-box">
 <table>
 <tr><th>Product</th><th>Category</th><th>Availability</th></tr>
-<tr><td>Limcee Zinc</td><td>Vitamin C</td><td>In Stock</td></tr>
-<tr><td>Tixylix DX</td><td>Cough Syrup</td><td>In Stock</td></tr>
+<tr><td>Ensure</td><td>Nutrition</td><td>In Stock</td></tr>
 <tr><td>Digene</td><td>Antacid</td><td>In Stock</td></tr>
-<tr><td>ORS</td><td>Electrolyte</td><td>In Stock</td></tr>
+<tr><td>Evion</td><td>Vitamin</td><td>In Stock</td></tr>
 </table>
-</div>
-
-<div class="download">
-<a href="company-profile.pdf" download>Download Company Profile</a>
-</div>
-</section>
-
-<section class="section reveal" id="bulk">
-<h2>Bulk Order Enquiry</h2>
-<div class="form-box">
-<form id="enquiryForm" action="https://formsubmit.co/info@svpmedicare.com" method="POST">
-<input type="hidden" name="_next" value="https://svpmedicare.github.io/thankyou.html">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<input type="text" name="phone" placeholder="Phone Number" required>
-<textarea name="message" rows="4" placeholder="Product & Quantity"></textarea>
-<button type="submit">Submit Enquiry</button>
-</form>
-</div>
-</section>
-
-<section class="section reveal" id="contact">
-<h2>Contact Information</h2>
-<div class="contact-grid">
-<div class="contact-box">
-<p><strong>Phone:</strong> 9390494784</p>
-<p><strong>Email:</strong> info@svpmedicare.com</p>
-<p>SVP Medicare LLP<br>
-4th Floor, Plot No.21&22, Telecom Nagar,<br>
-Trendz Dwaraka, Gachibowli,<br>
-Hyderabad - 500032</p>
-<p><strong>GST:</strong> XXXXXXXXXX</p>
-<p><strong>Drug License:</strong> XXXXXXXXXX</p>
-</div>
-
-<div class="contact-box">
-<iframe src="https://www.google.com/maps?q=Trendz+Dwaraka+Telecom+Nagar+Gachibowli+Hyderabad+500032&output=embed"
-width="100%" height="350" style="border:0;border-radius:15px"></iframe>
-</div>
-</div>
 </section>
 
 <footer>
-<p>© 2025 SVP Medicare LLP | Pharmaceutical Distributor</p>
+<p>SVP Medicare LLP | Hyderabad</p>
+<p>Phone: 9390494784 | Email: info@svpmedicare.com</p>
 </footer>
-
-<a href="https://wa.me/919390494784" class="whatsapp-float" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-<div class="call-bar">
-<a href="tel:9390494784"><i class="fa fa-phone"></i> Call Now</a>
-<a href="https://wa.me/919390494784" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-</div>
 
 <script>
 /* LOADER */
-window.addEventListener("load",()=>{
-document.getElementById("loader").style.display="none";
-});
+window.addEventListener("load",()=>{document.getElementById("page-loader").style.display="none"})
 
-/* SCROLL REVEAL */
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-for(let r of reveals){
-let windowHeight=window.innerHeight;
-let elementTop=r.getBoundingClientRect().top;
-if(elementTop<windowHeight-100){r.classList.add("active")}
+/* SCROLL BAR */
+window.onscroll=()=>{
+let winScroll=document.body.scrollTop||document.documentElement.scrollTop
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight
+document.getElementById("scroll-progress").style.width=(winScroll/height)*100+"%"
 }
-});
-
-/* PROGRESS BAR */
-window.onscroll=function(){
-let winScroll=document.body.scrollTop||document.documentElement.scrollTop;
-let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-let scrolled=(winScroll/height)*100;
-document.getElementById("progressBar").style.width=scrolled+"%";
-};
 
 /* COUNTER */
-let counted=false;
-window.addEventListener("scroll",()=>{
-let counter=document.getElementById("counter");
-let oTop=counter.offsetTop-window.innerHeight;
-if(!counted && window.pageYOffset>oTop){
-let count=0;
-let interval=setInterval(()=>{
-count+=10;
-counter.innerText=count+"+";
-if(count>=500){clearInterval(interval)}
-},20);
-counted=true;
+const counters=document.querySelectorAll('.counter')
+counters.forEach(counter=>{
+counter.innerText='0'
+const update=()=>{
+const target=+counter.getAttribute('data-target')
+const c=+counter.innerText
+const inc=target/200
+if(c<target){counter.innerText=`${Math.ceil(c+inc)}`;setTimeout(update,10)}
+else{counter.innerText=target+'+'}
 }
-});
+update()
+})
 </script>
 
 </body>
