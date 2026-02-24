@@ -18,7 +18,7 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:Montserrat,sans-serif;background:#f9fbfd;color:#1e1e1e}
+body{font-family:Montserrat,sans-serif;background:#f9fbfd;color:#1e1e1e;overflow-x:hidden}
 
 /* GLASS HEADER */
 header{
@@ -34,18 +34,57 @@ nav a{margin-left:30px;text-decoration:none;color:#003566;font-weight:600}
 
 /* HERO */
 .hero{
+position:relative;
 display:flex;justify-content:space-between;align-items:center;
 padding:120px 8%;
 background:linear-gradient(135deg,#003566,#001d3d);
-color:#fff
+color:#fff;
+overflow:hidden;
 }
+
+/* background glow shapes */
+.hero::before{
+content:"";
+position:absolute;
+width:500px;height:500px;
+background:radial-gradient(circle,rgba(255,255,255,0.15),transparent);
+top:-150px;right:-150px;
+}
+.hero::after{
+content:"";
+position:absolute;
+width:400px;height:400px;
+background:radial-gradient(circle,rgba(0,119,255,0.25),transparent);
+bottom:-150px;left:-150px;
+}
+
 .hero h1{font-size:3rem;margin-bottom:20px}
 .hero p{color:#dbe7ff;margin-bottom:30px}
+
 .hero button{
 background:#fff;color:#003566;border:none;
 padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer
 }
-.hero img{width:420px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.4)}
+
+/* floating hero image card */
+.hero-img{
+width:420px;
+border-radius:20px;
+background:rgba(255,255,255,0.06);
+padding:12px;
+backdrop-filter:blur(10px);
+box-shadow:0 25px 70px rgba(0,0,0,0.6);
+animation:float 4s ease-in-out infinite;
+}
+.hero-img img{
+width:100%;
+border-radius:15px;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
 
 /* SECTION */
 .section{padding:90px 8%}
@@ -111,7 +150,7 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 
 @media(max-width:900px){
 .hero{flex-direction:column;text-align:center}
-.hero img{margin-top:40px;width:300px}
+.hero-img{margin-top:40px;width:300px}
 .contact-grid{grid-template-columns:1fr}
 }
 </style>
@@ -134,12 +173,15 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 <p>SVP Medicare LLP is a premium pharmaceutical distributor supplying Abbott OTC and healthcare products to hospitals, pharmacies and institutions nationwide.</p>
 <a href="#bulk"><button>Request Bulk Supply</button></a>
 </div>
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e7c1cbd30?auto=format&fit=crop&w=900&q=80">
+
+<div class="hero-img">
+<img src="product7.png" alt="Abbott OTC Products">
+</div>
 </section>
 
 <section class="section reveal">
 <div class="stats">
-<div class="stat"><h3 class="counter">500+</h3><p>Clients</p></div>
+<div class="stat"><h3>500+</h3><p>Clients</p></div>
 <div class="stat"><h3>Pan India</h3><p>Supply Network</p></div>
 <div class="stat"><h3>Abbott</h3><p>OTC Portfolio</p></div>
 </div>
@@ -170,7 +212,7 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 </div>
 
 <div class="download">
-<a href="company-profile.pdf" download>Download Company Profile</a>
+<a href="SVP-Medicare-Profile.pdf.docx" download>Download Company Profile</a>
 </div>
 </section>
 
