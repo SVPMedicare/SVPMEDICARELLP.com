@@ -7,7 +7,7 @@
 
 <title>SVP Medicare LLP | Abbott Distributor Hyderabad | Pharma Supplier India</title>
 
-<meta name="description" content="SVP Medicare LLP is a trusted Abbott distributor in Hyderabad supplying OTC, pharma and healthcare products across India to hospitals, pharmacies and institutions.">
+<meta name="description" content="SVP Medicare LLP is a trusted Abbott distributor in Hyderabad supplying OTC, pharma and healthcare products across India to hospitals, pharmacies and institutions nationwide.">
 <meta name="keywords" content="Abbott distributor Hyderabad, pharma distributor India, OTC supplier, SVP Medicare LLP, pharmaceutical distributor Hyderabad">
 <meta name="author" content="SVP Medicare LLP">
 
@@ -48,7 +48,6 @@ color:#fff
 background:#fff;color:#003566;border:none;
 padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer
 }
-.hero img{width:420px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.4)}
 
 /* SECTION */
 .section{padding:90px 8%}
@@ -104,7 +103,6 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 
 @media(max-width:900px){
 .hero{flex-direction:column;text-align:center}
-.hero img{margin-top:40px;width:300px}
 .contact-grid{grid-template-columns:1fr}
 }
 </style>
@@ -129,121 +127,4 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 <p>SVP Medicare LLP is a premium pharmaceutical distributor supplying Abbott OTC and healthcare products to hospitals, pharmacies and institutions nationwide.</p>
 <a href="#bulk"><button>Request Bulk Supply</button></a>
 </div>
-<img src="https://images.unsplash.com/photo-1588776814546-ec7e7c1cbd30?auto=format&fit=crop&w=900&q=80">
 </section>
-
-<section class="section reveal">
-<div class="stats">
-<div class="stat"><h3 id="counter">0</h3><p>Clients</p></div>
-<div class="stat"><h3>Pan India</h3><p>Supply Network</p></div>
-<div class="stat"><h3>Abbott</h3><p>OTC Portfolio</p></div>
-</div>
-</section>
-
-<section class="section reveal" id="products">
-<h2>Our Key Products</h2>
-<div class="products">
-
-<div class="card"><a href="product2.png" target="_blank"><img src="product2.png"></a><h3>New Safexim 200</h3></div>
-<div class="card"><a href="product3.png" target="_blank"><img src="product3.png"></a><h3>New Tixylix DX</h3></div>
-<div class="card"><a href="product4.png" target="_blank"><img src="product4.png"></a><h3>Limcee Zinc</h3></div>
-<div class="card"><a href="product5.png" target="_blank"><img src="product5.png"></a><h3>Rzole DSR</h3></div>
-<div class="card"><a href="product6.png" target="_blank"><img src="product6.png"></a><h3>Megamox CV 625</h3></div>
-<div class="card"><a href="product7.png" target="_blank"><img src="product7.png"></a><h3>Floxip 250</h3></div>
-
-</div>
-</section>
-
-<section class="section reveal">
-<h2>OTC Product List</h2>
-<div class="table-box">
-<table>
-<tr><th>Product</th><th>Category</th><th>Availability</th></tr>
-<tr><td>Limcee Zinc</td><td>Vitamin C</td><td>In Stock</td></tr>
-<tr><td>Tixylix DX</td><td>Cough Syrup</td><td>In Stock</td></tr>
-<tr><td>Digene</td><td>Antacid</td><td>In Stock</td></tr>
-<tr><td>ORS</td><td>Electrolyte</td><td>In Stock</td></tr>
-</table>
-</div>
-
-<div class="download">
-<a href="company-profile.pdf" download>Download Company Profile</a>
-</div>
-</section>
-
-<section class="section reveal" id="bulk">
-<h2>Bulk Order Enquiry</h2>
-<div class="form-box">
-<form action="https://formsubmit.co/info@svpmedicare.com" method="POST">
-<input type="hidden" name="_next" value="thankyou.html">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<input type="text" name="phone" placeholder="Phone Number" required>
-<textarea name="message" rows="4" placeholder="Product & Quantity"></textarea>
-<button type="submit">Submit Enquiry</button>
-</form>
-</div>
-</section>
-
-<section class="section reveal" id="contact">
-<h2>Contact Information</h2>
-<div class="contact-grid">
-<div class="contact-box">
-<p><strong>Phone:</strong> 9390494784</p>
-<p><strong>Email:</strong> info@svpmedicare.com</p>
-<p>SVP Medicare LLP<br>
-4th Floor, Plot No.21&22, Telecom Nagar,<br>
-Trendz Dwaraka, Gachibowli,<br>
-Hyderabad - 500032</p>
-<p><strong>GST:</strong> XXXXXXXXXX</p>
-<p><strong>Drug License:</strong> XXXXXXXXXX</p>
-</div>
-
-<div class="contact-box">
-<iframe src="https://www.google.com/maps?q=Trendz+Dwaraka+Telecom+Nagar+Gachibowli+Hyderabad+500032&output=embed"
-width="100%" height="350" style="border:0;border-radius:15px"></iframe>
-</div>
-</div>
-</section>
-
-<footer>
-<p>© 2025 SVP Medicare LLP | Pharmaceutical Distributor</p>
-</footer>
-
-<a href="https://wa.me/919390494784" class="whatsapp-float" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-<script>
-/* LOADING BAR */
-window.onload=function(){document.getElementById("loader").style.width="100%"}
-
-/* REVEAL */
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-for(let r of reveals){
-let windowHeight=window.innerHeight;
-let elementTop=r.getBoundingClientRect().top;
-if(elementTop<windowHeight-100){r.classList.add("active")}
-}
-});
-
-/* COUNTER */
-let counted=false;
-window.addEventListener("scroll",()=>{
-const counter=document.getElementById("counter");
-const top=counter.getBoundingClientRect().top;
-if(!counted && top<window.innerHeight){
-let count=0;
-let interval=setInterval(()=>{
-count+=10;
-counter.textContent=count+"+";
-if(count>=500){clearInterval(interval);counter.textContent="500+"}
-},30);
-counted=true;
-}
-});
-</script>
-
-</body>
-</html>
