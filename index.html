@@ -3,146 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SVP Medicare LLP | Abbott Super Distributor</title>
+<title>SVP Medicare LLP | Abbott Distributor Hyderabad</title>
+
 <link rel="icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#f5f7fb;
-color:#1a1a1a;
-scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f5f7fb;color:#0a2540}
 
+/* HEADER */
 header{
-position:sticky;
-top:0;
-background:rgba(255,255,255,0.85);
+position:sticky;top:0;z-index:999;
+background:rgba(255,255,255,0.6);
 backdrop-filter:blur(10px);
-padding:15px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 40px;border-bottom:1px solid #eee
 }
+header img{height:50px}
+nav a{margin-left:30px;text-decoration:none;color:#0a2540;font-weight:500}
 
-nav a{
-margin-left:30px;
-text-decoration:none;
-color:#1a1a1a;
-font-weight:600;
-}
-
+/* HERO */
 .hero{
-background:#0b3d66;
-color:#fff;
-padding:100px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+background:linear-gradient(135deg,#0a2540,#133a63);
+color:#fff;padding:100px 40px;
+display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap
 }
-
-.hero h1{
-font-size:48px;
-margin-bottom:20px;
-}
-
-.hero p{
-max-width:600px;
-line-height:1.6;
-}
-
+.hero-text{max-width:600px}
+.hero h1{font-size:48px;margin-bottom:20px}
+.hero p{font-size:18px;margin-bottom:30px}
 .btn{
-display:inline-block;
-margin-top:20px;
-padding:14px 30px;
-background:#fff;
-color:#0b3d66;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
+background:#fff;color:#0a2540;
+padding:14px 30px;border-radius:30px;
+text-decoration:none;font-weight:600;
+display:inline-block
 }
 
-.counter-section{
-background:#0b3d66;
-color:#fff;
-display:flex;
-justify-content:space-around;
-padding:60px 20px;
-text-align:center;
+/* COUNTER */
+.counter{
+background:#0f3b63;color:#fff;
+display:flex;justify-content:space-around;
+padding:60px 20px;text-align:center
 }
+.counter h2{font-size:42px;color:#00d4ff}
+.counter p{margin-top:10px}
 
-.counter h2{
-font-size:40px;
-margin:0;
-}
+/* PRODUCTS */
+.products{padding:80px 40px;text-align:center}
+.products h2{font-size:32px;margin-bottom:50px}
 
-.section{
-padding:70px 50px;
-}
-
-.products{
+.product-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:30px
 }
 
-.card{
-background:#fff;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-transition:0.3s;
+.product-card{
+background:#fff;border-radius:20px;
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.3s
 }
-
-.card:hover{
-transform:translateY(-8px);
+.product-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.15)
 }
-
-table{
+.product-card img{
 width:100%;
-border-collapse:collapse;
-background:#fff;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
+height:180px;
+object-fit:contain;
+margin-bottom:15px
+}
+.product-card h3{font-size:18px}
+
+/* DOWNLOAD */
+.download{
+background:#fff;padding:60px;text-align:center
+}
+.download a{
+display:inline-block;margin-top:20px;
+padding:14px 30px;background:#0a2540;color:#fff;
+border-radius:30px;text-decoration:none
 }
 
-table th,table td{
-padding:15px;
-border-bottom:1px solid #eee;
-text-align:left;
+/* CONTACT */
+.contact{padding:80px 40px;text-align:center}
+.contact form{max-width:600px;margin:auto}
+.contact input,.contact textarea{
+width:100%;padding:14px;margin:10px 0;
+border-radius:10px;border:1px solid #ccc
+}
+.contact button{
+background:#0a2540;color:#fff;
+padding:14px 30px;border:none;border-radius:30px
 }
 
-form{
-display:grid;
-gap:15px;
-max-width:500px;
-}
-
-input,textarea{
-padding:12px;
-border:1px solid #ccc;
-border-radius:8px;
-width:100%;
-}
-
-button{
-padding:14px;
-background:#0b3d66;
-color:#fff;
-border:none;
-border-radius:25px;
-font-size:16px;
-cursor:pointer;
-}
-
+/* FOOTER */
 footer{
-background:#0b3d66;
-color:#fff;
-text-align:center;
-padding:25px;
-margin-top:50px;
+background:#0a2540;color:#fff;
+text-align:center;padding:20px;margin-top:40px
 }
 </style>
 </head>
@@ -150,7 +109,7 @@ margin-top:50px;
 <body>
 
 <header>
-<div><b>SVP Medicare LLP</b></div>
+<img src="logo.png" alt="SVP Medicare LLP">
 <nav>
 <a href="#products">Products</a>
 <a href="#bulk">Bulk Orders</a>
@@ -159,109 +118,99 @@ margin-top:50px;
 </header>
 
 <section class="hero">
-<div>
+<div class="hero-text">
 <h1>Trusted Pharmaceutical Distribution Across India</h1>
 <p>SVP Medicare LLP is a premium pharmaceutical distributor supplying Abbott OTC and healthcare products to hospitals, pharmacies and institutions nationwide.</p>
-<a href="#bulk" class="btn">Request Bulk Supply</a>
+<a href="#contact" class="btn">Request Bulk Supply</a>
 </div>
 </section>
 
-<section class="counter-section">
-<div class="counter">
+<section class="counter">
+<div>
 <h2 id="clients">0</h2>
 <p>Clients</p>
 </div>
-<div class="counter">
+<div>
 <h2 id="states">0</h2>
 <p>States Covered</p>
 </div>
-<div class="counter">
+<div>
 <h2 id="orders">0</h2>
 <p>Orders Delivered</p>
 </div>
 </section>
 
-<section class="section" id="products">
+<section class="products" id="products">
 <h2>Our Key Products</h2>
-<div class="products">
-<div class="card">Abbott OTC Range</div>
-<div class="card">Nutritional Supplements</div>
-<div class="card">General Pharma</div>
-<div class="card">Healthcare Essentials</div>
+
+<div class="product-grid">
+
+<div class="product-card">
+<img src="product2.png" alt="">
+<h3>Dolo 650</h3>
+</div>
+
+<div class="product-card">
+<img src="product3.png" alt="">
+<h3>Digene</h3>
+</div>
+
+<div class="product-card">
+<img src="product4.png" alt="">
+<h3>Pediasure</h3>
+</div>
+
+<div class="product-card">
+<img src="product5.png" alt="">
+<h3>Ensure</h3>
+</div>
+
+<div class="product-card">
+<img src="product6.png" alt="">
+<h3>Electral</h3>
+</div>
+
+<div class="product-card">
+<img src="product7.png" alt="">
+<h3>ORS</h3>
+</div>
+
 </div>
 </section>
 
-<section class="section">
-<h2>OTC Product Table</h2>
-<table>
-<tr>
-<th>Product</th>
-<th>Category</th>
-<th>Availability</th>
-</tr>
-<tr>
-<td>Digene</td>
-<td>Antacid</td>
-<td>In Stock</td>
-</tr>
-<tr>
-<td>Cremaffin</td>
-<td>Laxative</td>
-<td>In Stock</td>
-</tr>
-<tr>
-<td>Ensure</td>
-<td>Nutrition</td>
-<td>In Stock</td>
-</tr>
-</table>
+<section class="download" id="bulk">
+<h2>Company Profile</h2>
+<p>Download our detailed corporate profile for product list, logistics and supply capabilities.</p>
+<a href="company-profile.pdf" download>Download Profile</a>
 </section>
 
-<section class="section" id="bulk">
+<section class="contact" id="contact">
 <h2>Bulk Order Enquiry</h2>
 <form action="thankyou.html">
-<input type="text" placeholder="Company Name" required>
-<input type="email" placeholder="Email" required>
-<input type="text" placeholder="Phone Number" required>
-<textarea placeholder="Your Requirement"></textarea>
-<button type="submit">Submit Enquiry</button>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Email Address" required>
+<textarea placeholder="Your Requirement" rows="4"></textarea>
+<button type="submit">Submit</button>
 </form>
 </section>
 
-<section class="section" id="contact">
-<h2>Contact Us</h2>
-<p>
-SVP Medicare LLP<br>
-4th Floor, Plot No.21&22, Telecom Nagar,<br>
-Trendz Dwaraka, Hyderabad – 500032<br>
-Phone: 9390494784
-</p>
-</section>
-
 <footer>
-© 2026 SVP Medicare LLP. All rights reserved.
+<p>SVP Medicare LLP | Abbott Super Distributor | Hyderabad</p>
 </footer>
 
 <script>
 function animateCounter(id, target){
 let count=0;
 let speed=target/100;
-
 let interval=setInterval(()=>{
 count+=speed;
-if(count>=target){
-count=target;
-clearInterval(interval);
-}
+if(count>=target){count=target;clearInterval(interval)}
 document.getElementById(id).innerText=Math.floor(count)+"+";
-},20);
+},20)
 }
-
-window.onload=function(){
 animateCounter("clients",500);
 animateCounter("states",28);
 animateCounter("orders",10000);
-};
 </script>
 
 </body>
