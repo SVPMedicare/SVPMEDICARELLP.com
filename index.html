@@ -239,13 +239,19 @@ let counted=false;
 window.addEventListener("scroll",()=>{
 const counter=document.getElementById("counter");
 const top=counter.getBoundingClientRect().top;
+
 if(!counted && top<window.innerHeight){
 let count=0;
 let interval=setInterval(()=>{
-count+=10;
+count+=50;   // faster increment for 2500
 counter.textContent=count+"+";
-if(count>=2500){clearInterval(interval);counter.textContent="2500+"}
-},60);
+
+if(count>=2500){
+clearInterval(interval);
+counter.textContent="2500+";
+}
+},30);
+
 counted=true;
 }
 });
@@ -253,5 +259,6 @@ counted=true;
 
 </body>
 </html>
+
 
 
