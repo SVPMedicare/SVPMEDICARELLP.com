@@ -16,7 +16,15 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Montserrat,sans-serif;background:#f9fbfd;color:#1e1e1e}
+html{scroll-behavior:smooth}
+body{
+font-family:Montserrat,sans-serif;
+background:#f9fbfd;
+color:#1e1e1e;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+letter-spacing:.2px;
+}
 
 /* LOADING BAR */
 #loader{position:fixed;top:0;left:0;height:4px;width:0;background:#003566;z-index:9999;transition:width .4s}
@@ -28,27 +36,57 @@ backdrop-filter:blur(12px);
 background:rgba(255,255,255,0.75);
 padding:18px 8%;
 display:flex;justify-content:space-between;align-items:center;
-box-shadow:0 4px 20px rgba(0,0,0,0.05)
+box-shadow:0 4px 20px rgba(0,0,0,0.05);
+transition:all .3s ease;
+}
+header.scrolled{
+box-shadow:0 10px 35px rgba(0,0,0,0.15);
+background:rgba(255,255,255,0.92);
 }
 header img{height:60px}
-nav a{margin-left:30px;text-decoration:none;color:#003566;font-weight:600}
+
+nav a{margin-left:30px;text-decoration:none;color:#003566;font-weight:600;position:relative}
+nav a.active{color:#001d3d}
+nav a.active::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:100%;
+height:3px;
+background:#003566;
+border-radius:3px;
+}
 
 /* HERO */
 .hero{
 display:flex;justify-content:space-between;align-items:center;
 padding:120px 8%;
-background:linear-gradient(135deg,#003566,#001d3d);
+background:linear-gradient(-45deg,#003566,#001d3d,#002855,#001233);
+background-size:400% 400%;
+animation:heroGradient 12s ease infinite;
 color:#fff
 }
+@keyframes heroGradient{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
 .hero h1{font-size:3rem;margin-bottom:20px}
 .hero p{color:#dbe7ff;margin-bottom:30px}
 .hero button{
 background:#fff;color:#003566;border:none;
-padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer
+padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer;
+transition:.3s
+}
+.hero button:hover{
+box-shadow:0 0 18px rgba(255,255,255,0.75);
+transform:translateY(-2px);
 }
 
 /* SECTION */
-.section{padding:90px 8%}
+.section{padding:90px 8%;border-top:1px solid #eef2f7}
 .section h2{text-align:center;font-size:2.2rem;margin-bottom:50px;color:#003566}
 
 /* COUNTER */
@@ -61,9 +99,12 @@ padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer
 .card{
 background:#fff;border-radius:18px;padding:20px;text-align:center;
 box-shadow:0 8px 25px rgba(0,0,0,0.06);
-transition:.3s
+transition:.35s
 }
-.card:hover{transform:translateY(-10px);box-shadow:0 15px 35px rgba(0,0,0,0.12)}
+.card:hover{
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 20px 45px rgba(0,0,0,0.18);
+}
 .card img{width:100%;border-radius:12px;margin-bottom:15px;cursor:pointer}
 
 /* DIRECTOR ROUND IMAGE */
@@ -94,6 +135,11 @@ max-width:90%;
 max-height:80%;
 border-radius:12px;
 box-shadow:0 0 30px rgba(255,255,255,0.2);
+animation:lightboxZoom .35s ease;
+}
+@keyframes lightboxZoom{
+from{transform:scale(.85);opacity:0}
+to{transform:scale(1);opacity:1}
 }
 .lightbox-btn{
 position:absolute;
@@ -149,6 +195,27 @@ width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify
 font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 }
 
+/* SCROLL TO TOP */
+#topBtn{
+position:fixed;
+bottom:100px;
+right:25px;
+background:#003566;
+color:#fff;
+border:none;
+width:55px;
+height:55px;
+border-radius:50%;
+font-size:22px;
+display:none;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
+z-index:999;
+}
+#topBtn:hover{background:#001d3d}
+
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(40px);transition:all .8s}
 .reveal.active{opacity:1;transform:none}
@@ -191,7 +258,6 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 </div>
 </section>
 
-<!-- DIRECTORS -->
 <section class="section reveal" id="directors">
 <h2>Our Leadership</h2>
 <div class="products">
@@ -208,22 +274,18 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 </div>
 </section>
 
-<!-- PRODUCTS -->
 <section class="section reveal" id="products">
 <h2>Our Key Products</h2>
 <div class="products">
-
 <div class="card"><img src="product2.png" class="product-img"><h3>New Safexim 200</h3></div>
 <div class="card"><img src="product3.png" class="product-img"><h3>New Tixylix DX</h3></div>
 <div class="card"><img src="product4.png" class="product-img"><h3>Limcee Zinc</h3></div>
 <div class="card"><img src="product5.png" class="product-img"><h3>Rzole DSR</h3></div>
 <div class="card"><img src="product6.png" class="product-img"><h3>Megamox CV 625</h3></div>
 <div class="card"><img src="product7.png" class="product-img"><h3>Floxip 250</h3></div>
-
 </div>
 </section>
 
-<!-- BULK FORM -->
 <section class="section reveal" id="bulk">
 <h2>Bulk Order Enquiry</h2>
 <div class="form-box">
@@ -238,7 +300,6 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section reveal" id="contact">
 <h2>Contact Information</h2>
 <div class="contact-grid">
@@ -266,7 +327,8 @@ width="100%" height="350" style="border:0;border-radius:15px"></iframe>
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- LIGHTBOX HTML -->
+<button id="topBtn"><i class="fas fa-arrow-up"></i></button>
+
 <div id="lightbox" onclick="bgClose(event)">
 <button id="prevBtn" class="lightbox-btn">&#10094;</button>
 <img id="lightbox-img">
@@ -305,48 +367,79 @@ counted=true;
 }
 });
 
-/* PRODUCT LIGHTBOX SLIDER */
-const productImages = document.querySelectorAll(".product-img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.getElementById("prevBtn");
-const closeBtn = document.getElementById("closeBtn");
+/* LIGHTBOX */
+const productImages=document.querySelectorAll(".product-img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=document.getElementById("lightbox-img");
+const nextBtn=document.getElementById("nextBtn");
+const prevBtn=document.getElementById("prevBtn");
+const closeBtn=document.getElementById("closeBtn");
 
-let currentIndex = 0;
-let imageArray = [];
+let currentIndex=0;
+let imageArray=[];
 
-productImages.forEach((img, index) => {
+productImages.forEach((img,index)=>{
 imageArray.push(img.src);
-img.addEventListener("click", () => {
-lightbox.style.display = "flex";
-lightboxImg.src = img.src;
-currentIndex = index;
+img.addEventListener("click",()=>{
+lightbox.style.display="flex";
+lightboxImg.src=img.src;
+currentIndex=index;
 });
 });
 
-nextBtn.onclick = (e) => {
+nextBtn.onclick=(e)=>{
 e.stopPropagation();
-currentIndex = (currentIndex + 1) % imageArray.length;
-lightboxImg.src = imageArray[currentIndex];
+currentIndex=(currentIndex+1)%imageArray.length;
+lightboxImg.src=imageArray[currentIndex];
 };
 
-prevBtn.onclick = (e) => {
+prevBtn.onclick=(e)=>{
 e.stopPropagation();
-currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
-lightboxImg.src = imageArray[currentIndex];
+currentIndex=(currentIndex-1+imageArray.length)%imageArray.length;
+lightboxImg.src=imageArray[currentIndex];
 };
 
-closeBtn.onclick = () => lightbox.style.display = "none";
+closeBtn.onclick=()=>lightbox.style.display="none";
 
 function bgClose(e){
-if(e.target.id === "lightbox"){
-lightbox.style.display = "none";
+if(e.target.id==="lightbox"){
+lightbox.style.display="none";
 }
 }
+
+/* HEADER SHADOW */
+window.addEventListener("scroll",()=>{
+const header=document.querySelector("header");
+header.classList.toggle("scrolled",window.scrollY>40);
+});
+
+/* ACTIVE NAV */
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll("nav a");
+
+window.addEventListener("scroll",()=>{
+let current="";
+sections.forEach(section=>{
+const sectionTop=section.offsetTop-120;
+if(scrollY>=sectionTop){current=section.getAttribute("id")}
+});
+
+navLinks.forEach(a=>{
+a.classList.remove("active");
+if(a.getAttribute("href")==="#"+current){
+a.classList.add("active");
+}
+});
+});
+
+/* SCROLL TO TOP */
+const topBtn=document.getElementById("topBtn");
+window.addEventListener("scroll",()=>{
+if(window.scrollY>500){topBtn.style.display="flex"}
+else{topBtn.style.display="none"}
+});
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 </script>
 
 </body>
 </html>
-
-
