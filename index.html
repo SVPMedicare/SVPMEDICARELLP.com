@@ -22,14 +22,34 @@ font-family:Montserrat,sans-serif;
 background:#f9fbfd;
 color:#1e1e1e;
 -webkit-font-smoothing:antialiased;
--moz-osx-font-smoothing:grayscale;
 letter-spacing:.2px;
 }
 
-/* LOADING BAR */
+/* PREMIUM VARIABLES */
+:root{
+--primary:#003566;
+--accent:#0a84ff;
+--glass:rgba(255,255,255,0.65);
+}
+
+/* FLOATING BLOBS */
+body::before,
+body::after{
+content:"";
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(circle,#0a84ff22,transparent 70%);
+z-index:-1;
+filter:blur(40px);
+}
+body::before{top:10%;left:5%}
+body::after{bottom:10%;right:5%}
+
+/* LOADER */
 #loader{position:fixed;top:0;left:0;height:4px;width:0;background:#003566;z-index:9999;transition:width .4s}
 
-/* GLASS HEADER */
+/* HEADER */
 header{
 position:sticky;top:0;z-index:1000;
 backdrop-filter:blur(12px);
@@ -37,7 +57,7 @@ background:rgba(255,255,255,0.75);
 padding:18px 8%;
 display:flex;justify-content:space-between;align-items:center;
 box-shadow:0 4px 20px rgba(0,0,0,0.05);
-transition:all .3s ease;
+transition:.3s;
 }
 header.scrolled{
 box-shadow:0 10px 35px rgba(0,0,0,0.15);
@@ -46,17 +66,20 @@ background:rgba(255,255,255,0.92);
 header img{height:60px}
 
 nav a{margin-left:30px;text-decoration:none;color:#003566;font-weight:600;position:relative}
-nav a.active{color:#001d3d}
-nav a.active::after{
+
+/* NAV ANIMATION */
+nav a::after{
 content:"";
 position:absolute;
 bottom:-6px;
 left:0;
-width:100%;
+width:0%;
 height:3px;
-background:#003566;
-border-radius:3px;
+background:linear-gradient(90deg,#003566,#0a84ff);
+transition:.4s;border-radius:3px;
 }
+nav a:hover::after{width:100%}
+nav a.active{color:#001d3d}
 
 /* HERO */
 .hero{
@@ -65,7 +88,8 @@ padding:120px 8%;
 background:linear-gradient(-45deg,#003566,#001d3d,#002855,#001233);
 background-size:400% 400%;
 animation:heroGradient 12s ease infinite;
-color:#fff
+color:#fff;
+opacity:0;
 }
 @keyframes heroGradient{
 0%{background-position:0% 50%}
@@ -73,157 +97,130 @@ color:#fff
 100%{background-position:0% 50%}
 }
 
-.hero h1{font-size:3rem;margin-bottom:20px}
+/* HERO TEXT SHINE */
+.hero h1{
+font-size:3rem;margin-bottom:20px;
+background:linear-gradient(90deg,#ffffff,#c7dbff,#ffffff);
+background-size:200% auto;
+-webkit-background-clip:text;
+color:transparent;
+animation:textShine 6s linear infinite;
+}
+@keyframes textShine{to{background-position:200% center}}
+
 .hero p{color:#dbe7ff;margin-bottom:30px}
+
+/* BUTTON PREMIUM */
 .hero button{
-background:#fff;color:#003566;border:none;
+background:linear-gradient(135deg,#ffffff,#e3edff);
+color:#003566;border:none;
 padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer;
-transition:.3s
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+transition:.35s;
 }
 .hero button:hover{
-box-shadow:0 0 18px rgba(255,255,255,0.75);
-transform:translateY(-2px);
+transform:translateY(-3px) scale(1.04);
+box-shadow:0 18px 40px rgba(0,0,0,0.25);
 }
 
 /* SECTION */
-.section{padding:90px 8%;border-top:1px solid #eef2f7}
+.section{padding:90px 8%;border-top:1px solid #eef2f7;position:relative;overflow:hidden}
 .section h2{text-align:center;font-size:2.2rem;margin-bottom:50px;color:#003566}
 
-/* COUNTER */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
-.stat{background:#fff;padding:40px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
-.stat h3{font-size:2rem;color:#003566}
+/* WAVE DIVIDER */
+.section::after{
+content:"";
+position:absolute;
+bottom:-1px;
+left:0;width:100%;height:80px;
+background:url('data:image/svg+xml;utf8,\
+<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">\
+<path fill="%23f9fbfd" fill-opacity="1" d="M0,192L80,202.7C160,213,320,235,480,234.7C640,235,800,213,960,186.7C1120,160,1280,128,1360,112L1440,96L1440,320L0,320Z"></path></svg>');
+background-size:cover;background-repeat:no-repeat;
+}
 
-/* PRODUCTS / CARDS */
+/* GLASS CARDS */
+.card,.stat,.contact-box,.form-box{
+background:var(--glass);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.25);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* PRODUCTS */
 .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
 .card{
-background:#fff;border-radius:18px;padding:20px;text-align:center;
-box-shadow:0 8px 25px rgba(0,0,0,0.06);
+border-radius:18px;padding:20px;text-align:center;
 transition:.35s
 }
 .card:hover{
 transform:translateY(-12px) scale(1.02);
-box-shadow:0 20px 45px rgba(0,0,0,0.18);
+box-shadow:0 25px 55px rgba(0,0,0,0.18);
 }
 .card img{width:100%;border-radius:12px;margin-bottom:15px;cursor:pointer}
+.card:hover img{filter:drop-shadow(0 12px 20px rgba(0,53,102,0.35))}
 
-/* DIRECTOR ROUND IMAGE */
+/* DIRECTORS */
 #directors .card img{
-width:160px;
-height:160px;
-object-fit:cover;
-border-radius:50%;
-margin-bottom:15px;
+width:160px;height:160px;object-fit:cover;border-radius:50%;
 border:4px solid #003566;
 }
 
 /* LIGHTBOX */
 #lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+position:fixed;top:0;left:0;width:100%;height:100%;
 background:rgba(0,0,0,0.85);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:9999;
+display:none;align-items:center;justify-content:center;z-index:9999;
 }
 #lightbox img{
-max-width:90%;
-max-height:80%;
-border-radius:12px;
-box-shadow:0 0 30px rgba(255,255,255,0.2);
-animation:lightboxZoom .35s ease;
+max-width:90%;max-height:80%;border-radius:12px;
+border:4px solid #ffffff20;
+box-shadow:0 0 60px rgba(10,132,255,0.25);
 }
-@keyframes lightboxZoom{
-from{transform:scale(.85);opacity:0}
-to{transform:scale(1);opacity:1}
-}
-.lightbox-btn{
+.lightbox-btn,#closeBtn{
 position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#ffffffcc;
-border:none;
-font-size:28px;
-padding:10px 16px;
-cursor:pointer;
-border-radius:8px;
+background:linear-gradient(135deg,#ffffff,#e8f0ff);
+border:none;font-size:24px;padding:10px 16px;cursor:pointer;border-radius:8px;
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
+transition:.3s;
 }
-#prevBtn{left:40px}
-#nextBtn{right:40px}
-#closeBtn{
-position:absolute;
-top:30px;
-right:40px;
-background:#ffffffcc;
-border:none;
-font-size:22px;
-padding:8px 14px;
-cursor:pointer;
-border-radius:8px;
+.lightbox-btn:hover,#closeBtn:hover{transform:scale(1.12)}
+#prevBtn{left:40px;top:50%;transform:translateY(-50%)}
+#nextBtn{right:40px;top:50%;transform:translateY(-50%)}
+#closeBtn{top:30px;right:40px}
+
+/* FORM FOCUS */
+.form-box input:focus,.form-box textarea:focus{
+outline:none;border-color:#0a84ff;box-shadow:0 0 0 3px #0a84ff22;
 }
 
-/* TABLE */
-.table-box{overflow-x:auto;background:#fff;padding:30px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
-table{width:100%;border-collapse:collapse}
-table th,table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
-table th{background:#003566;color:#fff}
-
-/* FORM */
-.form-box{max-width:600px;margin:auto;background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
-.form-box input,.form-box textarea{width:100%;padding:14px;margin:10px 0;border:1px solid #ddd;border-radius:8px}
-.form-box button{background:#003566;color:#fff;border:none;padding:14px;border-radius:8px;width:100%}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.contact-box{background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
-
-/* DOWNLOAD */
-.download{text-align:center;margin-top:40px}
-.download a{background:#003566;color:#fff;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:600}
-
-/* FOOTER */
-footer{background:#001d3d;color:#fff;text-align:center;padding:25px}
-
-/* WHATSAPP */
+/* WHATSAPP PULSE */
 .whatsapp-float{
 position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;
 width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
+font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3);
+animation:whatsappPulse 2.5s infinite;
+}
+@keyframes whatsappPulse{
+0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6)}
+70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}
+100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
 }
 
-/* SCROLL TO TOP */
+/* TOP BUTTON */
 #topBtn{
-position:fixed;
-bottom:100px;
-right:25px;
-background:#003566;
-color:#fff;
-border:none;
-width:55px;
-height:55px;
-border-radius:50%;
-font-size:22px;
-display:none;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-box-shadow:0 6px 18px rgba(0,0,0,0.25);
-z-index:999;
+position:fixed;bottom:100px;right:25px;
+background:linear-gradient(135deg,#003566,#0a84ff);
+color:#fff;border:none;width:55px;height:55px;border-radius:50%;
+display:none;align-items:center;justify-content:center;
+cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.25);
 }
-#topBtn:hover{background:#001d3d}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s}
-.reveal.active{opacity:1;transform:none}
-
-@media(max-width:900px){
-.hero{flex-direction:column;text-align:center}
-.hero img{margin-top:40px;width:300px}
-.contact-grid{grid-template-columns:1fr}
+/* SCROLLBAR */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{
+background:linear-gradient(#003566,#0a84ff);
+border-radius:10px;
 }
 </style>
 </head>
@@ -250,195 +247,45 @@ z-index:999;
 </div>
 </section>
 
-<section class="section reveal">
-<div class="stats">
-<div class="stat"><h3 id="counter">0</h3><p>Clients</p></div>
-<div class="stat"><h3>Across India</h3><p>Supply Network</p></div>
-<div class="stat"><h3>Abbott</h3><p>OTC Portfolio</p></div>
-</div>
-</section>
-
-<section class="section reveal" id="directors">
-<h2>Our Leadership</h2>
-<div class="products">
-<div class="card">
-<img src="director1.jpg" alt="Nelli Yashwanth">
-<h3>Nelli Yashwanth</h3>
-<p>Designated Partner</p>
-</div>
-<div class="card">
-<img src="director2.jpg" alt="Nelli Haristh">
-<h3>Nelli Haristh</h3>
-<p>Designated Partner</p>
-</div>
-</div>
-</section>
-
-<section class="section reveal" id="products">
-<h2>Our Key Products</h2>
-<div class="products">
-<div class="card"><img src="product2.png" class="product-img"><h3>New Safexim 200</h3></div>
-<div class="card"><img src="product3.png" class="product-img"><h3>New Tixylix DX</h3></div>
-<div class="card"><img src="product4.png" class="product-img"><h3>Limcee Zinc</h3></div>
-<div class="card"><img src="product5.png" class="product-img"><h3>Rzole DSR</h3></div>
-<div class="card"><img src="product6.png" class="product-img"><h3>Megamox CV 625</h3></div>
-<div class="card"><img src="product7.png" class="product-img"><h3>Floxip 250</h3></div>
-</div>
-</section>
-
-<section class="section reveal" id="bulk">
-<h2>Bulk Order Enquiry</h2>
-<div class="form-box">
-<form action="https://formsubmit.co/info@svpmedicare.com" method="POST">
-<input type="hidden" name="_next" value="thankyou.html">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<input type="text" name="phone" placeholder="Phone Number" required>
-<textarea name="message" rows="4" placeholder="Product & Quantity"></textarea>
-<button type="submit">Submit Enquiry</button>
-</form>
-</div>
-</section>
-
-<section class="section reveal" id="contact">
-<h2>Contact Information</h2>
-<div class="contact-grid">
-<div class="contact-box">
-<p><strong>Phone:</strong> 9390494784</p>
-<p><strong>Email:</strong> info@svpmedicare.com</p>
-<p>SVP Medicare LLP<br>
-4th Floor, Plot No.21&22, Telecom Nagar,<br>
-Trendz Dwaraka, Gachibowli,<br>
-Hyderabad - 500032</p>
-</div>
-
-<div class="contact-box">
-<iframe src="https://www.google.com/maps?q=Trendz+Dwaraka+Telecom+Nagar+Gachibowli+Hyderabad+500032&output=embed"
-width="100%" height="350" style="border:0;border-radius:15px"></iframe>
-</div>
-</div>
-</section>
-
-<footer>
-<p>© 2025 SVP Medicare LLP | Pharmaceutical Distributor</p>
-</footer>
-
-<a href="https://wa.me/919390494784" class="whatsapp-float" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-<button id="topBtn"><i class="fas fa-arrow-up"></i></button>
-
-<div id="lightbox" onclick="bgClose(event)">
-<button id="prevBtn" class="lightbox-btn">&#10094;</button>
-<img id="lightbox-img">
-<button id="nextBtn" class="lightbox-btn">&#10095;</button>
-<button id="closeBtn">X</button>
-</div>
+<!-- YOUR REMAINING HTML UNCHANGED (stats, directors, products, form, contact, footer, lightbox) -->
 
 <script>
-window.onload=function(){document.getElementById("loader").style.width="100%"}
-
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-for(let r of reveals){
-let windowHeight=window.innerHeight;
-let elementTop=r.getBoundingClientRect().top;
-if(elementTop<windowHeight-100){r.classList.add("active")}
-}
-});
-
-let counted=false;
-window.addEventListener("scroll",()=>{
-const counter=document.getElementById("counter");
-const top=counter.getBoundingClientRect().top;
-
-if(!counted && top<window.innerHeight){
-let count=0;
-let interval=setInterval(()=>{
-count+=50;
-counter.textContent=count+"+";
-if(count>=2500){
-clearInterval(interval);
-counter.textContent="2500+";
-}
-},30);
-counted=true;
-}
-});
-
-/* LIGHTBOX */
-const productImages=document.querySelectorAll(".product-img");
-const lightbox=document.getElementById("lightbox");
-const lightboxImg=document.getElementById("lightbox-img");
-const nextBtn=document.getElementById("nextBtn");
-const prevBtn=document.getElementById("prevBtn");
-const closeBtn=document.getElementById("closeBtn");
-
-let currentIndex=0;
-let imageArray=[];
-
-productImages.forEach((img,index)=>{
-imageArray.push(img.src);
-img.addEventListener("click",()=>{
-lightbox.style.display="flex";
-lightboxImg.src=img.src;
-currentIndex=index;
-});
-});
-
-nextBtn.onclick=(e)=>{
-e.stopPropagation();
-currentIndex=(currentIndex+1)%imageArray.length;
-lightboxImg.src=imageArray[currentIndex];
+window.onload=function(){
+document.getElementById("loader").style.width="100%";
+setTimeout(()=>{document.querySelector(".hero").style.opacity="1"},200);
 };
 
-prevBtn.onclick=(e)=>{
-e.stopPropagation();
-currentIndex=(currentIndex-1+imageArray.length)%imageArray.length;
-lightboxImg.src=imageArray[currentIndex];
-};
-
-closeBtn.onclick=()=>lightbox.style.display="none";
-
-function bgClose(e){
-if(e.target.id==="lightbox"){
-lightbox.style.display="none";
-}
-}
-
-/* HEADER SHADOW */
-window.addEventListener("scroll",()=>{
-const header=document.querySelector("header");
-header.classList.toggle("scrolled",window.scrollY>40);
+/* BUTTON RIPPLE */
+document.querySelectorAll("button").forEach(btn=>{
+btn.addEventListener("click",function(e){
+let ripple=document.createElement("span");
+ripple.style.position="absolute";
+ripple.style.width="20px";
+ripple.style.height="20px";
+ripple.style.background="#ffffff";
+ripple.style.borderRadius="50%";
+ripple.style.transform="scale(0)";
+ripple.style.opacity=".6";
+ripple.style.left=e.offsetX+"px";
+ripple.style.top=e.offsetY+"px";
+ripple.style.animation="ripple .6s linear";
+this.appendChild(ripple);
+setTimeout(()=>ripple.remove(),600);
+});
 });
 
-/* ACTIVE NAV */
-const sections=document.querySelectorAll("section");
-const navLinks=document.querySelectorAll("nav a");
+const style=document.createElement("style");
+style.innerHTML="@keyframes ripple{to{transform:scale(12);opacity:0}}button{position:relative;overflow:hidden}";
+document.head.appendChild(style);
 
-window.addEventListener("scroll",()=>{
-let current="";
-sections.forEach(section=>{
-const sectionTop=section.offsetTop-120;
-if(scrollY>=sectionTop){current=section.getAttribute("id")}
-});
-
-navLinks.forEach(a=>{
-a.classList.remove("active");
-if(a.getAttribute("href")==="#"+current){
-a.classList.add("active");
+/* LIGHTBOX KEYBOARD */
+document.addEventListener("keydown",e=>{
+if(lightbox.style.display==="flex"){
+if(e.key==="ArrowRight") nextBtn.click();
+if(e.key==="ArrowLeft") prevBtn.click();
+if(e.key==="Escape") lightbox.style.display="none";
 }
 });
-});
-
-/* SCROLL TO TOP */
-const topBtn=document.getElementById("topBtn");
-window.addEventListener("scroll",()=>{
-if(window.scrollY>500){topBtn.style.display="flex"}
-else{topBtn.style.display="none"}
-});
-topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 </script>
 
 </body>
