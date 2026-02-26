@@ -220,32 +220,31 @@ z-index:999;
 .reveal{opacity:0;transform:translateY(40px);transition:all .8s}
 .reveal.active{opacity:1;transform:none}
 
-/* ================= MOBILE PERFECT VIEW ================= */
-@media (max-width:768px){
+/* ============================= */
+/* RESPONSIVE – MOBILE OPTIMIZE  */
+/* ============================= */
+
+@media (max-width: 768px){
 
 header{
-padding:12px 5%;
+padding:14px 5%;
 flex-direction:column;
 gap:10px;
+text-align:center;
 }
 
-header img{height:50px}
-
-nav{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:12px;
+nav a{
+margin:0 10px;
+font-size:14px;
 }
-
-nav a{margin:0;font-size:14px}
 
 .hero{
-padding:80px 5%;
+padding:90px 5%;
+text-align:center;
 }
 
 .hero h1{
-font-size:1.9rem;
+font-size:2rem;
 line-height:1.3;
 }
 
@@ -257,40 +256,31 @@ font-size:14px;
 padding:70px 5%;
 }
 
-.section h2{
-font-size:1.7rem;
-margin-bottom:35px;
-}
-
-.stat{
-padding:25px;
-}
-
 .products{
 grid-template-columns:1fr;
-gap:20px;
 }
 
-.card{
-padding:18px;
+.stats{
+grid-template-columns:1fr;
+gap:20px;
 }
 
 #directors .card img{
 width:130px;
 height:130px;
+margin:auto;
 }
 
 .contact-grid{
 grid-template-columns:1fr;
-gap:25px;
+}
+
+.contact-box{
+padding:25px;
 }
 
 .form-box{
 padding:25px;
-}
-
-.table-box{
-padding:20px;
 }
 
 .lightbox-btn{
@@ -300,18 +290,12 @@ padding:8px 12px;
 
 #prevBtn{left:10px}
 #nextBtn{right:10px}
-
-#closeBtn{
-top:15px;
-right:15px;
-}
+#closeBtn{top:15px;right:15px}
 
 .whatsapp-float{
 width:55px;
 height:55px;
 font-size:24px;
-bottom:20px;
-right:20px;
 }
 
 #topBtn{
@@ -319,11 +303,27 @@ width:48px;
 height:48px;
 font-size:18px;
 bottom:85px;
-right:20px;
 }
+
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px){
+
+.hero h1{
+font-size:1.7rem;
+}
+
+.hero button{
+padding:12px 22px;
+font-size:14px;
+}
+
+.stat{
+padding:25px;
+}
+
 }
 </style>
 </head>
-
-<body>
-<!-- YOUR BODY CONTENT REMAINS EXACTLY SAME (no change needed) -->
