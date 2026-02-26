@@ -16,7 +16,13 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Montserrat,sans-serif;background:#f9fbfd;color:#1e1e1e}
+body{
+font-family:Montserrat,sans-serif;
+background:
+linear-gradient(#f9fbfd,#f9fbfd),
+url("https://www.transparenttextures.com/patterns/cubes.png");
+color:#1e1e1e
+}
 
 /* LOADING BAR */
 #loader{position:fixed;top:0;left:0;height:4px;width:0;background:#003566;z-index:9999;transition:width .4s}
@@ -44,80 +50,88 @@ color:#fff
 .hero p{color:#dbe7ff;margin-bottom:30px}
 .hero button{
 background:#fff;color:#003566;border:none;
-padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer
+padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer;
+transition:.3s
+}
+.hero button:hover{
+background:#00b4d8;color:#fff;
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(0,180,216,0.4);
+}
+.hero-img{
+width:420px;
+filter:drop-shadow(0 20px 40px rgba(0,0,0,0.35));
 }
 
 /* SECTION */
 .section{padding:90px 8%}
-.section h2{text-align:center;font-size:2.2rem;margin-bottom:50px;color:#003566}
+.section h2{
+text-align:center;font-size:2.2rem;margin-bottom:50px;color:#003566;position:relative
+}
+.section h2::after{
+content:"";
+display:block;
+width:80px;
+height:4px;
+margin:14px auto 0;
+border-radius:2px;
+background:linear-gradient(90deg,#003566,#00b4d8);
+}
 
 /* COUNTER */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
-.stat{background:#fff;padding:40px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
+.stat{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.4);
+padding:40px;border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.06)
+}
 .stat h3{font-size:2rem;color:#003566}
 
 /* PRODUCTS / CARDS */
 .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
 .card{
-background:#fff;border-radius:18px;padding:20px;text-align:center;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.4);
+border-radius:18px;padding:20px;text-align:center;
 box-shadow:0 8px 25px rgba(0,0,0,0.06);
 transition:.3s
 }
-.card:hover{transform:translateY(-10px);box-shadow:0 15px 35px rgba(0,0,0,0.12)}
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 20px 45px rgba(0,53,102,0.18);
+}
 .card img{width:100%;border-radius:12px;margin-bottom:15px;cursor:pointer}
 
 /* DIRECTOR ROUND IMAGE */
 #directors .card img{
-width:160px;
-height:160px;
-object-fit:cover;
-border-radius:50%;
-margin-bottom:15px;
-border:4px solid #003566;
+width:160px;height:160px;object-fit:cover;border-radius:50%;
+margin-bottom:15px;border:4px solid #003566;
 }
 
 /* LIGHTBOX */
 #lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+position:fixed;top:0;left:0;width:100%;height:100%;
 background:rgba(0,0,0,0.85);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:9999;
+display:none;align-items:center;justify-content:center;z-index:9999;
 }
 #lightbox img{
-max-width:90%;
-max-height:80%;
-border-radius:12px;
-box-shadow:0 0 30px rgba(255,255,255,0.2);
+max-width:90%;max-height:80%;
+border-radius:12px;box-shadow:0 0 30px rgba(255,255,255,0.2);
 }
 .lightbox-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#ffffffcc;
-border:none;
-font-size:28px;
-padding:10px 16px;
-cursor:pointer;
-border-radius:8px;
+position:absolute;top:50%;transform:translateY(-50%);
+background:#ffffffcc;border:none;font-size:28px;
+padding:10px 16px;cursor:pointer;border-radius:8px;
 }
 #prevBtn{left:40px}
 #nextBtn{right:40px}
 #closeBtn{
-position:absolute;
-top:30px;
-right:40px;
-background:#ffffffcc;
-border:none;
-font-size:22px;
-padding:8px 14px;
-cursor:pointer;
-border-radius:8px;
+position:absolute;top:30px;right:40px;
+background:#ffffffcc;border:none;font-size:22px;
+padding:8px 14px;cursor:pointer;border-radius:8px;
 }
 
 /* TABLE */
@@ -125,28 +139,61 @@ border-radius:8px;
 table{width:100%;border-collapse:collapse}
 table th,table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
 table th{background:#003566;color:#fff}
+table tr:hover{background:#f1f7ff}
 
 /* FORM */
-.form-box{max-width:600px;margin:auto;background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
-.form-box input,.form-box textarea{width:100%;padding:14px;margin:10px 0;border:1px solid #ddd;border-radius:8px}
-.form-box button{background:#003566;color:#fff;border:none;padding:14px;border-radius:8px;width:100%}
+.form-box{
+max-width:600px;margin:auto;
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+padding:40px;border-radius:18px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08)
+}
+.form-box input,.form-box textarea{
+width:100%;padding:14px;margin:10px 0;
+border:1px solid #ddd;border-radius:8px
+}
+.form-box button{
+background:#003566;color:#fff;border:none;
+padding:14px;border-radius:8px;width:100%;
+transition:.3s
+}
+.form-box button:hover{
+background:#00b4d8;
+box-shadow:0 10px 25px rgba(0,180,216,0.4);
+}
 
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.contact-box{background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
+.contact-box{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+padding:40px;border-radius:18px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08)
+}
 
 /* DOWNLOAD */
 .download{text-align:center;margin-top:40px}
 .download a{background:#003566;color:#fff;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:600}
 
 /* FOOTER */
-footer{background:#001d3d;color:#fff;text-align:center;padding:25px}
+footer{
+background:#001d3d;color:#fff;text-align:center;padding:25px;
+border-top:3px solid #00b4d8;
+}
 
 /* WHATSAPP */
 .whatsapp-float{
 position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;
-width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
+width:65px;height:65px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3);
+animation:pulse 2s infinite;
+}
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6)}
+70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}
+100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
 }
 
 /* REVEAL */
@@ -181,6 +228,7 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 <p>SVP Medicare LLP is a premium pharmaceutical distributor supplying Abbott OTC and healthcare products to hospitals, pharmacies and institutions nationwide.</p>
 <a href="#bulk"><button>Request Bulk Supply</button></a>
 </div>
+<img src="product2.png" alt="Pharma Distribution" class="hero-img">
 </section>
 
 <section class="section reveal">
@@ -191,7 +239,6 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 </div>
 </section>
 
-<!-- DIRECTORS -->
 <section class="section reveal" id="directors">
 <h2>Our Leadership</h2>
 <div class="products">
@@ -208,7 +255,6 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 </div>
 </section>
 
-<!-- PRODUCTS -->
 <section class="section reveal" id="products">
 <h2>Our Key Products</h2>
 <div class="products">
@@ -223,7 +269,6 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 </div>
 </section>
 
-<!-- BULK FORM -->
 <section class="section reveal" id="bulk">
 <h2>Bulk Order Enquiry</h2>
 <div class="form-box">
@@ -238,7 +283,6 @@ font-size:28px;box-shadow:0 6px 20px rgba(0,0,0,0.3)
 </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section reveal" id="contact">
 <h2>Contact Information</h2>
 <div class="contact-grid">
@@ -266,7 +310,6 @@ width="100%" height="350" style="border:0;border-radius:15px"></iframe>
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- LIGHTBOX HTML -->
 <div id="lightbox" onclick="bgClose(event)">
 <button id="prevBtn" class="lightbox-btn">&#10094;</button>
 <img id="lightbox-img">
@@ -305,7 +348,15 @@ counted=true;
 }
 });
 
-/* PRODUCT LIGHTBOX SLIDER */
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+anchor.addEventListener("click",function(e){
+e.preventDefault();
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+behavior:"smooth"
+});
+});
+});
+
 const productImages = document.querySelectorAll(".product-img");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
