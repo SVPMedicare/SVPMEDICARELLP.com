@@ -18,8 +18,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{
 font-family:Montserrat,sans-serif;
-background:
-linear-gradient(#f9fbfd,#f9fbfd),
+background:linear-gradient(#f9fbfd,#f9fbfd),
 url("https://www.transparenttextures.com/patterns/cubes.png");
 color:#1e1e1e
 }
@@ -27,7 +26,7 @@ color:#1e1e1e
 /* LOADING BAR */
 #loader{position:fixed;top:0;left:0;height:4px;width:0;background:#003566;z-index:9999;transition:width .4s}
 
-/* GLASS HEADER */
+/* HEADER */
 header{
 position:sticky;top:0;z-index:1000;
 backdrop-filter:blur(12px);
@@ -44,7 +43,7 @@ nav a{margin-left:30px;text-decoration:none;color:#003566;font-weight:600}
 display:flex;justify-content:space-between;align-items:center;
 padding:120px 8%;
 background:linear-gradient(135deg,#003566,#001d3d);
-color:#fff
+color:#fff;gap:60px
 }
 .hero h1{font-size:3rem;margin-bottom:20px}
 .hero p{color:#dbe7ff;margin-bottom:30px}
@@ -58,9 +57,43 @@ background:#00b4d8;color:#fff;
 transform:translateY(-2px);
 box-shadow:0 10px 25px rgba(0,180,216,0.4);
 }
-.hero-img{
-width:420px;
-filter:drop-shadow(0 20px 40px rgba(0,0,0,0.35));
+
+/* ABBOTT BRAND BOX */
+.hero-right{
+max-width:420px;
+background:rgba(255,255,255,0.08);
+padding:40px;
+border-radius:18px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.15);
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
+position:relative;
+overflow:hidden;
+}
+.hero-right::before{
+content:"";
+position:absolute;
+top:0;left:0;width:100%;height:6px;
+background:linear-gradient(90deg,#009cde,#003a8f);
+}
+.hero-right h3{
+color:#00b4d8;
+margin-bottom:10px;
+font-weight:600;
+letter-spacing:2px;
+font-size:13px;
+}
+.hero-right h2{
+font-size:2.4rem;
+font-weight:700;
+letter-spacing:4px;
+color:#ffffff;
+margin-bottom:15px;
+}
+.hero-right p{
+color:#dbe7ff;
+line-height:1.6;
+font-size:14px;
 }
 
 /* SECTION */
@@ -71,14 +104,12 @@ text-align:center;font-size:2.2rem;margin-bottom:50px;color:#003566;position:rel
 .section h2::after{
 content:"";
 display:block;
-width:80px;
-height:4px;
-margin:14px auto 0;
+width:80px;height:4px;margin:14px auto 0;
 border-radius:2px;
 background:linear-gradient(90deg,#003566,#00b4d8);
 }
 
-/* COUNTER */
+/* STATS */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
 .stat{
 background:rgba(255,255,255,0.7);
@@ -89,7 +120,7 @@ box-shadow:0 8px 25px rgba(0,0,0,0.06)
 }
 .stat h3{font-size:2rem;color:#003566}
 
-/* PRODUCTS / CARDS */
+/* CARDS */
 .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
 .card{
 background:rgba(255,255,255,0.7);
@@ -105,41 +136,11 @@ box-shadow:0 20px 45px rgba(0,53,102,0.18);
 }
 .card img{width:100%;border-radius:12px;margin-bottom:15px;cursor:pointer}
 
-/* DIRECTOR ROUND IMAGE */
+/* DIRECTORS */
 #directors .card img{
 width:160px;height:160px;object-fit:cover;border-radius:50%;
 margin-bottom:15px;border:4px solid #003566;
 }
-
-/* LIGHTBOX */
-#lightbox{
-position:fixed;top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,0.85);
-display:none;align-items:center;justify-content:center;z-index:9999;
-}
-#lightbox img{
-max-width:90%;max-height:80%;
-border-radius:12px;box-shadow:0 0 30px rgba(255,255,255,0.2);
-}
-.lightbox-btn{
-position:absolute;top:50%;transform:translateY(-50%);
-background:#ffffffcc;border:none;font-size:28px;
-padding:10px 16px;cursor:pointer;border-radius:8px;
-}
-#prevBtn{left:40px}
-#nextBtn{right:40px}
-#closeBtn{
-position:absolute;top:30px;right:40px;
-background:#ffffffcc;border:none;font-size:22px;
-padding:8px 14px;cursor:pointer;border-radius:8px;
-}
-
-/* TABLE */
-.table-box{overflow-x:auto;background:#fff;padding:30px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
-table{width:100%;border-collapse:collapse}
-table th,table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
-table th{background:#003566;color:#fff}
-table tr:hover{background:#f1f7ff}
 
 /* FORM */
 .form-box{
@@ -172,10 +173,6 @@ padding:40px;border-radius:18px;
 box-shadow:0 10px 35px rgba(0,0,0,0.08)
 }
 
-/* DOWNLOAD */
-.download{text-align:center;margin-top:40px}
-.download a{background:#003566;color:#fff;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:600}
-
 /* FOOTER */
 footer{
 background:#001d3d;color:#fff;text-align:center;padding:25px;
@@ -202,7 +199,6 @@ animation:pulse 2s infinite;
 
 @media(max-width:900px){
 .hero{flex-direction:column;text-align:center}
-.hero img{margin-top:40px;width:300px}
 .contact-grid{grid-template-columns:1fr}
 }
 </style>
@@ -228,7 +224,12 @@ animation:pulse 2s infinite;
 <p>SVP Medicare LLP is a premium pharmaceutical distributor supplying Abbott OTC and healthcare products to hospitals, pharmacies and institutions nationwide.</p>
 <a href="#bulk"><button>Request Bulk Supply</button></a>
 </div>
-<img src="product2.png" alt="Pharma Distribution" class="hero-img">
+
+<div class="hero-right">
+<h3>AUTHORIZED SUPER DISTRIBUTOR</h3>
+<h2>ABBOTT</h2>
+<p>PAN India bulk distribution to hospitals, pharmacies and institutions with strong logistics and warehousing.</p>
+</div>
 </section>
 
 <section class="section reveal">
@@ -310,16 +311,8 @@ width="100%" height="350" style="border:0;border-radius:15px"></iframe>
 <i class="fab fa-whatsapp"></i>
 </a>
 
-<div id="lightbox" onclick="bgClose(event)">
-<button id="prevBtn" class="lightbox-btn">&#10094;</button>
-<img id="lightbox-img">
-<button id="nextBtn" class="lightbox-btn">&#10095;</button>
-<button id="closeBtn">X</button>
-</div>
-
 <script>
 window.onload=function(){document.getElementById("loader").style.width="100%"}
-
 const reveals=document.querySelectorAll(".reveal");
 window.addEventListener("scroll",()=>{
 for(let r of reveals){
@@ -328,73 +321,6 @@ let elementTop=r.getBoundingClientRect().top;
 if(elementTop<windowHeight-100){r.classList.add("active")}
 }
 });
-
-let counted=false;
-window.addEventListener("scroll",()=>{
-const counter=document.getElementById("counter");
-const top=counter.getBoundingClientRect().top;
-
-if(!counted && top<window.innerHeight){
-let count=0;
-let interval=setInterval(()=>{
-count+=50;
-counter.textContent=count+"+";
-if(count>=2500){
-clearInterval(interval);
-counter.textContent="2500+";
-}
-},30);
-counted=true;
-}
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-anchor.addEventListener("click",function(e){
-e.preventDefault();
-document.querySelector(this.getAttribute("href")).scrollIntoView({
-behavior:"smooth"
-});
-});
-});
-
-const productImages = document.querySelectorAll(".product-img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.getElementById("prevBtn");
-const closeBtn = document.getElementById("closeBtn");
-
-let currentIndex = 0;
-let imageArray = [];
-
-productImages.forEach((img, index) => {
-imageArray.push(img.src);
-img.addEventListener("click", () => {
-lightbox.style.display = "flex";
-lightboxImg.src = img.src;
-currentIndex = index;
-});
-});
-
-nextBtn.onclick = (e) => {
-e.stopPropagation();
-currentIndex = (currentIndex + 1) % imageArray.length;
-lightboxImg.src = imageArray[currentIndex];
-};
-
-prevBtn.onclick = (e) => {
-e.stopPropagation();
-currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
-lightboxImg.src = imageArray[currentIndex];
-};
-
-closeBtn.onclick = () => lightbox.style.display = "none";
-
-function bgClose(e){
-if(e.target.id === "lightbox"){
-lightbox.style.display = "none";
-}
-}
 </script>
 
 </body>
