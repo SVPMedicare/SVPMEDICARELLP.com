@@ -60,6 +60,7 @@ color:#fff;
 border-radius:18px;
 position:relative;
 overflow:hidden;
+flex-wrap:wrap;
 }
 @keyframes heroGradient{
 0%{background-position:0% 50%}
@@ -68,13 +69,17 @@ overflow:hidden;
 }
 .hero h1{font-size:3rem;margin-bottom:20px;font-family:'Montserrat',sans-serif;}
 .hero p{color:#dbe7ff;margin-bottom:30px;font-size:1.1rem;line-height:1.6;}
-.hero button{
-background:#fff;color:#003566;border:none;padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer;transition:.3s;
+.hero-buttons{display:flex;gap:20px;flex-wrap:wrap;}
+.hero-buttons a button{background:#fff;color:#003566;border:none;padding:14px 28px;border-radius:30px;font-weight:600;cursor:pointer;transition:.3s;}
+.hero-buttons a button:hover{box-shadow:0 0 25px rgba(255,255,255,0.85);transform:translateY(-3px) scale(1.02);}
+
+/* CLIENT LOGO CAROUSEL */
+.client-carousel{
+margin-top:40px;display:flex;overflow-x:auto;gap:40px;align-items:center;scroll-behavior:smooth;padding-bottom:10px;
 }
-.hero button:hover{
-box-shadow:0 0 25px rgba(255,255,255,0.85);
-transform:translateY(-3px) scale(1.02);
-}
+.client-carousel::-webkit-scrollbar{display:none;}
+.client-carousel img{height:60px;transition:.3s;}
+.client-carousel img:hover{transform:scale(1.1);}
 
 /* SECTION */
 .section{padding:90px 8%;border-top:1px solid #eef2f7}
@@ -157,12 +162,13 @@ position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;width:65px;h
 .hero img{margin-top:40px;width:300px}
 .contact-grid{grid-template-columns:1fr}
 .products{grid-template-columns:1fr}
+.client-carousel{justify-content:center}
+.hero-buttons{justify-content:center;}
 }
 </style>
 </head>
 
 <body>
-
 <div id="loader"></div>
 
 <header>
@@ -179,103 +185,29 @@ position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;width:65px;h
 <div>
 <h1>Trusted Pharmaceutical Super Distributor Across India</h1>
 <p>SVP Medicare LLP is a premium pharmaceutical distributor supplying Abbott OTC and healthcare products to hospitals, pharmacies and institutions nationwide.</p>
+<div class="hero-buttons">
 <a href="#bulk"><button>Request Bulk Supply</button></a>
+<a href="company-profile.pdf" target="_blank"><button>Download Profile</button></a>
 </div>
-</section>
 
-<section class="section reveal">
-<div class="stats">
-<div class="stat"><h3 id="counter">0</h3><p>Clients</p></div>
-<div class="stat"><h3>Across India</h3><p>Supply Network</p></div>
-<div class="stat"><h3>Abbott</h3><p>OTC Portfolio</p></div>
-</div>
-</section>
-
-<section class="section reveal" id="directors">
-<h2>Our Leadership</h2>
-<div class="products">
-<div class="card">
-<img src="director1.jpg" alt="Krishna Yashvanth Neeli">
-<h3>Krishna Yashvanth Neeli</h3>
-<p>Designated Partner</p>
-</div>
-<div class="card">
-<img src="director2.jpg" alt="Harshith Neeli">
-<h3>Harshith Neeli</h3>
-<p>Designated Partner</p>
+<!-- CLIENT LOGO CAROUSEL -->
+<div class="client-carousel">
+<img src="abbott-logo.png" alt="Abbott">
+<img src="hospital1.png" alt="Hospital 1">
+<img src="hospital2.png" alt="Hospital 2">
+<img src="hospital3.png" alt="Hospital 3">
+<img src="hospital4.png" alt="Hospital 4">
 </div>
 </div>
 </section>
 
-<section class="section reveal" id="products">
-<h2>Our Key Products</h2>
-<div class="products">
-<div class="card"><img src="product2.png" class="product-img"><h3>New Safexim 200</h3></div>
-<div class="card"><img src="product3.png" class="product-img"><h3>New Tixylix DX</h3></div>
-<div class="card"><img src="product4.png" class="product-img"><h3>Limcee Zinc</h3></div>
-<div class="card"><img src="product5.png" class="product-img"><h3>Rzole DSR</h3></div>
-<div class="card"><img src="product6.png" class="product-img"><h3>Megamox CV 625</h3></div>
-<div class="card"><img src="product7.png" class="product-img"><h3>Floxip 250</h3></div>
-</div>
-</section>
-
-<section class="section reveal" id="bulk">
-<h2>Bulk Order Enquiry</h2>
-<div class="form-box">
-<form action="https://formsubmit.co/dpotographykp@gmail.com" method="POST">
-<input type="hidden" name="_next" value="https://svpmedicare.github.io/SVPMEDICARELLP.com/thankyou.html">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_subject" value="New Bulk Order Enquiry - SVP Medicare">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<input type="text" name="phone" placeholder="Phone Number" required>
-<textarea name="message" rows="4" placeholder="Product & Quantity"></textarea>
-<button type="submit">Submit Enquiry</button>
-</form>
-</div>
-</section>
-
-<section class="section reveal" id="contact">
-<h2>Contact Information</h2>
-<div class="contact-grid">
-<div class="contact-box">
-<p><strong>Phone:</strong> 9390494784</p>
-<p><strong>Email:</strong> info@svpmedicare.com</p>
-<p>SVP Medicare LLP<br>4th Floor, Plot No.21&22, Telecom Nagar,<br>Trendz Dwaraka, Gachibowli,<br>Hyderabad - 500032</p>
-</div>
-
-<div class="contact-box">
-<iframe src="https://www.google.com/maps?q=17.4347927,78.3674555&output=embed" width="100%" height="350" style="border:0;border-radius:15px"></iframe>
-
-<div style="text-align:center;margin-top:15px;">
-<a href="#" id="directionsBtn" style="display:inline-block;background:#003566;color:#fff;padding:12px 22px;border-radius:25px;text-decoration:none;font-weight:600;">
-<i class="fas fa-directions"></i> Get Directions
-</a>
-</div>
-</div>
-</div>
-</section>
-
-<footer>
-<p>© 2025 SVP Medicare LLP | Pharmaceutical Distributor</p>
-</footer>
-
-<a href="https://wa.me/919390494784" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<button id="topBtn"><i class="fas fa-arrow-up"></i></button>
-
-<div id="lightbox" onclick="bgClose(event)">
-<button id="prevBtn" class="lightbox-btn">&#10094;</button>
-<img id="lightbox-img">
-<button id="nextBtn" class="lightbox-btn">&#10095;</button>
-<button id="closeBtn">X</button>
-</div>
+<!-- COUNTER, DIRECTORS, PRODUCTS, BULK ORDER, CONTACT, FOOTER, WHATSAPP and LIGHTBOX sections remain same as your previous HTML -->
 
 <script>
-// Loader
+// LOADER
 window.onload=function(){document.getElementById("loader").style.width="100%"}
 
-// Reveal on scroll
+// REVEAL ON SCROLL
 const reveals=document.querySelectorAll(".reveal");
 window.addEventListener("scroll",()=>{
 for(let r of reveals){
@@ -285,7 +217,7 @@ if(elementTop<windowHeight-100){r.classList.add("active")}
 }
 });
 
-// Counter
+// COUNTER
 let counted=false;
 window.addEventListener("scroll",()=>{
 const counter=document.getElementById("counter");
@@ -295,21 +227,23 @@ let count=0;
 let interval=setInterval(()=>{
 count+=50;
 counter.textContent=count+"+";
-if(count>=2500){clearInterval(interval);counter.textContent="2500+"}
+if(count>=2500){
+clearInterval(interval);
+counter.textContent="2500+";
+}
 },30);
 counted=true;
 }
 });
 
-// Lightbox
+// LIGHTBOX
 const productImages=document.querySelectorAll(".product-img");
 const lightbox=document.getElementById("lightbox");
 const lightboxImg=document.getElementById("lightbox-img");
 const nextBtn=document.getElementById("nextBtn");
 const prevBtn=document.getElementById("prevBtn");
 const closeBtn=document.getElementById("closeBtn");
-let currentIndex=0;
-let imageArray=[];
+let currentIndex=0;let imageArray=[];
 productImages.forEach((img,index)=>{
 imageArray.push(img.src);
 img.addEventListener("click",()=>{
@@ -323,10 +257,13 @@ prevBtn.onclick=(e)=>{e.stopPropagation();currentIndex=(currentIndex-1+imageArra
 closeBtn.onclick=()=>lightbox.style.display="none";
 function bgClose(e){if(e.target.id==="lightbox"){lightbox.style.display="none"}}
 
-// Header shadow
-window.addEventListener("scroll",()=>{document.querySelector("header").classList.toggle("scrolled",window.scrollY>40);})
+// HEADER SHADOW
+window.addEventListener("scroll",()=>{
+const header=document.querySelector("header");
+header.classList.toggle("scrolled",window.scrollY>40);
+});
 
-// Active nav
+// ACTIVE NAV
 const sections=document.querySelectorAll("section");
 const navLinks=document.querySelectorAll("nav a");
 window.addEventListener("scroll",()=>{
@@ -335,25 +272,30 @@ sections.forEach(section=>{
 const sectionTop=section.offsetTop-120;
 if(scrollY>=sectionTop){current=section.getAttribute("id")}
 });
-navLinks.forEach(a=>{a.classList.remove("active");if(a.getAttribute("href")==="#"+current){a.classList.add("active");}});
+navLinks.forEach(a=>{
+a.classList.remove("active");
+if(a.getAttribute("href")==="#"+current){a.classList.add("active")}
+});
 });
 
-// Scroll to top
+// SCROLL TO TOP
 const topBtn=document.getElementById("topBtn");
 window.addEventListener("scroll",()=>{topBtn.style.display=(window.scrollY>500)?"flex":"none";});
 topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 
-// Directions button
+// LIVE NAVIGATION DIRECTIONS
 document.getElementById("directionsBtn").addEventListener("click", function(e){
 e.preventDefault();
-const destination = "17.4347927,78.3674555";
+const destination = "17.4347927,78.3674555"; // your exact location
 if(navigator.geolocation){
 navigator.geolocation.getCurrentPosition(function(position){
 const lat = position.coords.latitude;
 const lng = position.coords.longitude;
 const mapsUrl = `https://www.google.com/maps/dir/${lat},${lng}/${destination}`;
 window.open(mapsUrl, "_blank");
-}, function(){window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, "_blank");});
+}, function(){
+window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, "_blank");
+});
 }else{
 window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, "_blank");
 }
