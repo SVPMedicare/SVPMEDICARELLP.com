@@ -14,7 +14,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Roboto',sans-serif;background:#f9fbfd;color:#1e1e1e;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:.2px;}
+body{font-family:'Roboto',sans-serif;background:#f9fbfd;color:#1e1e1e;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:.2px;transition:background .3s;}
 
 /* LOADER */
 #loader{position:fixed;top:0;left:0;height:4px;width:0;background:#003566;z-index:9999;transition:width .4s}
@@ -29,7 +29,7 @@ nav a.active{color:#001d3d}
 nav a.active::after{content:"";position:absolute;bottom:-6px;left:0;width:100%;height:3px;background:#003566;border-radius:3px;transition:.3s;}
 
 /* HERO */
-.hero{display:flex;justify-content:space-between;align-items:center;padding:120px 8%;background:linear-gradient(-45deg,#003566,#001d3d,#002855,#001233);background-size:400% 400%;animation:heroGradient 12s ease infinite;color:#fff;border-radius:18px;position:relative;overflow:hidden;}
+.hero{display:flex;justify-content:space-between;align-items:center;padding:120px 8%;background:linear-gradient(-45deg,#003566,#001d3d,#002855,#001233);background-size:400% 400%;animation:heroGradient 12s ease infinite;color:#fff;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 15px 50px rgba(0,0,0,0.1);}
 @keyframes heroGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 .hero h1{font-size:3rem;margin-bottom:20px;font-family:'Montserrat',sans-serif;animation:floatText 6s ease-in-out infinite alternate;}
 .hero p{color:#dbe7ff;margin-bottom:30px;font-size:1.1rem;line-height:1.6;animation:floatText 5s ease-in-out infinite alternate;}
@@ -61,20 +61,20 @@ nav a.active::after{content:"";position:absolute;bottom:-6px;left:0;width:100%;h
 /* COUNTER / STATS */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
 .stat{background:rgba(255,255,255,0.9);padding:40px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.08);transition:.3s;cursor:pointer;animation:floatUp 0.6s ease;will-change:transform;}
-.stat:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 20px 45px rgba(0,0,0,0.2);background:#003566;color:#fff;}
+.stat:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 25px 60px rgba(0,0,0,0.2);background:#003566;color:#fff;}
 .stat h3{font-size:2rem;color:#003566;font-family:'Montserrat',sans-serif;transition:.3s;}
 .stat:hover h3{color:#fff;}
 
 /* PRODUCTS / CARDS */
 .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
 .card{background:rgba(255,255,255,0.95);border-radius:18px;padding:20px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,0.08);transition:.35s;backdrop-filter:blur(10px);will-change:transform;}
-.card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 20px 45px rgba(0,0,0,0.2);filter:drop-shadow(0 0 15px rgba(0,53,102,0.3));}
+.card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 25px 60px rgba(0,0,0,0.2);filter:drop-shadow(0 0 15px rgba(0,53,102,0.3));}
 .card img{width:100%;border-radius:12px;margin-bottom:15px;cursor:pointer;transition:.3s, box-shadow .4s;}
 .card img:hover{transform:scale(1.05);box-shadow:0 15px 25px rgba(0,53,102,0.25);}
 
 /* DIRECTOR ROUND IMAGE */
 #directors .card img{width:160px;height:160px;object-fit:cover;border-radius:50%;margin-bottom:15px;border:4px solid #003566;transition:.3s, box-shadow .4s;}
-#directors .card img:hover{transform:scale(1.05) rotate(3deg);box-shadow:0 15px 35px rgba(0,53,102,0.3);}
+#directors .card img:hover{transform:scale(1.05) rotate(3deg);box-shadow:0 20px 45px rgba(0,53,102,0.3);}
 
 /* LIGHTBOX */
 #lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;align-items:center;justify-content:center;z-index:9999;}
@@ -93,7 +93,6 @@ nav a.active::after{content:"";position:absolute;bottom:-6px;left:0;width:100%;h
 }
 </style>
 </head>
-
 <body>
 
 <div id="loader"></div>
