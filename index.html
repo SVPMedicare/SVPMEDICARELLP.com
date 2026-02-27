@@ -181,10 +181,6 @@ table th{background:#003566;color:#fff}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .contact-box{background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
 
-/* DOWNLOAD */
-.download{text-align:center;margin-top:40px}
-.download a{background:#003566;color:#fff;padding:14px 28px;border-radius:30px;text-decoration:none;font-weight:600}
-
 /* FOOTER */
 footer{background:#001d3d;color:#fff;text-align:center;padding:25px}
 
@@ -324,6 +320,13 @@ Hyderabad - 500032</p>
 <div class="contact-box">
 <iframe src="https://www.google.com/maps?q=Trendz+Dwaraka+Telecom+Nagar+Gachibowli+Hyderabad+500032&output=embed"
 width="100%" height="350" style="border:0;border-radius:15px"></iframe>
+
+<div style="text-align:center;margin-top:15px;">
+<a href="#" id="directionsBtn"
+style="display:inline-block;background:#003566;color:#fff;padding:12px 22px;border-radius:25px;text-decoration:none;font-weight:600;">
+<i class="fas fa-directions"></i> Get Directions
+</a>
+</div>
 </div>
 </div>
 </section>
@@ -448,9 +451,31 @@ if(window.scrollY>500){topBtn.style.display="flex"}
 else{topBtn.style.display="none"}
 });
 topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+/* LIVE NAVIGATION */
+document.getElementById("directionsBtn").addEventListener("click", function(e){
+e.preventDefault();
+
+const destination = "17.4435,78.3487";
+
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(function(position){
+
+const lat = position.coords.latitude;
+const lng = position.coords.longitude;
+
+const mapsUrl = `https://www.google.com/maps/dir/${lat},${lng}/${destination}`;
+
+window.open(mapsUrl, "_blank");
+
+}, function(){
+window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, "_blank");
+});
+}else{
+window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, "_blank");
+}
+});
 </script>
 
 </body>
 </html>
-
-
