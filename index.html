@@ -166,12 +166,6 @@ cursor:pointer;
 border-radius:8px;
 }
 
-/* TABLE */
-.table-box{overflow-x:auto;background:#fff;padding:30px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.06)}
-table{width:100%;border-collapse:collapse}
-table th,table td{padding:12px;border-bottom:1px solid #eee;text-align:left}
-table th{background:#003566;color:#fff}
-
 /* FORM */
 .form-box{max-width:600px;margin:auto;background:#fff;padding:40px;border-radius:18px;box-shadow:0 10px 35px rgba(0,0,0,0.08)}
 .form-box input,.form-box textarea{width:100%;padding:14px;margin:10px 0;border:1px solid #ddd;border-radius:8px}
@@ -223,7 +217,6 @@ z-index:999;
 }
 </style>
 </head>
-
 <body>
 
 <div id="loader"></div>
@@ -312,14 +305,16 @@ z-index:999;
 <p><strong>Phone:</strong> 9390494784</p>
 <p><strong>Email:</strong> info@svpmedicare.com</p>
 <p>SVP Medicare LLP<br>
-4th Floor, Plot No.21&22, Telecom Nagar,<br>
-Trendz Dwaraka, Gachibowli,<br>
-Hyderabad - 500032</p>
+Trendz Dwaraka, Plot No. 21 & 22, Sri Shyam Nagar, Telecom Nagar,<br>
+Gachibowli, Hyderabad, Telangana 500032</p>
 </div>
 
 <div class="contact-box">
-<iframe src="https://www.google.com/maps?q=Trendz+Dwaraka+Telecom+Nagar+Gachibowli+Hyderabad+500032&output=embed"
-width="100%" height="350" style="border:0;border-radius:15px"></iframe>
+<!-- Correct Google Maps Embed -->
+<iframe
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1697!2d78.365266!3d17.434796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9361b06bc059%3A0x2a99da64f80f17f4!2sTrendz%20Dwaraka%20-%20Plot%20No.%2021%20%26%2022!5e0!3m2!1sen!2sin!4v1709040000000!5m2!1sen!2sin"
+width="100%" height="350" style="border:0;border-radius:15px" allowfullscreen="" loading="lazy">
+</iframe>
 
 <div style="text-align:center;margin-top:15px;">
 <a href="#" id="directionsBtn"
@@ -352,29 +347,19 @@ style="display:inline-block;background:#003566;color:#fff;padding:12px 22px;bord
 window.onload=function(){document.getElementById("loader").style.width="100%"}
 
 const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-for(let r of reveals){
+window.addEventListener("scroll",()=>{for(let r of reveals){
 let windowHeight=window.innerHeight;
 let elementTop=r.getBoundingClientRect().top;
 if(elementTop<windowHeight-100){r.classList.add("active")}
-}
-});
+}});
 
 let counted=false;
 window.addEventListener("scroll",()=>{
 const counter=document.getElementById("counter");
 const top=counter.getBoundingClientRect().top;
-
 if(!counted && top<window.innerHeight){
 let count=0;
-let interval=setInterval(()=>{
-count+=50;
-counter.textContent=count+"+";
-if(count>=2500){
-clearInterval(interval);
-counter.textContent="2500+";
-}
-},30);
+let interval=setInterval(()=>{count+=50;counter.textContent=count+"+";if(count>=2500){clearInterval(interval);counter.textContent="2500+"}},30);
 counted=true;
 }
 });
@@ -386,93 +371,46 @@ const lightboxImg=document.getElementById("lightbox-img");
 const nextBtn=document.getElementById("nextBtn");
 const prevBtn=document.getElementById("prevBtn");
 const closeBtn=document.getElementById("closeBtn");
-
 let currentIndex=0;
 let imageArray=[];
-
-productImages.forEach((img,index)=>{
-imageArray.push(img.src);
-img.addEventListener("click",()=>{
-lightbox.style.display="flex";
-lightboxImg.src=img.src;
-currentIndex=index;
-});
-});
-
-nextBtn.onclick=(e)=>{
-e.stopPropagation();
-currentIndex=(currentIndex+1)%imageArray.length;
-lightboxImg.src=imageArray[currentIndex];
-};
-
-prevBtn.onclick=(e)=>{
-e.stopPropagation();
-currentIndex=(currentIndex-1+imageArray.length)%imageArray.length;
-lightboxImg.src=imageArray[currentIndex];
-};
-
+productImages.forEach((img,index)=>{imageArray.push(img.src);img.addEventListener("click",()=>{lightbox.style.display="flex";lightboxImg.src=img.src;currentIndex=index});});
+nextBtn.onclick=(e)=>{e.stopPropagation();currentIndex=(currentIndex+1)%imageArray.length;lightboxImg.src=imageArray[currentIndex];};
+prevBtn.onclick=(e)=>{e.stopPropagation();currentIndex=(currentIndex-1+imageArray.length)%imageArray.length;lightboxImg.src=imageArray[currentIndex];};
 closeBtn.onclick=()=>lightbox.style.display="none";
-
-function bgClose(e){
-if(e.target.id==="lightbox"){
-lightbox.style.display="none";
-}
-}
+function bgClose(e){if(e.target.id==="lightbox"){lightbox.style.display="none"}}
 
 /* HEADER SHADOW */
-window.addEventListener("scroll",()=>{
-const header=document.querySelector("header");
-header.classList.toggle("scrolled",window.scrollY>40);
-});
+window.addEventListener("scroll",()=>{const header=document.querySelector("header");header.classList.toggle("scrolled",window.scrollY>40);});
 
 /* ACTIVE NAV */
 const sections=document.querySelectorAll("section");
 const navLinks=document.querySelectorAll("nav a");
-
 window.addEventListener("scroll",()=>{
 let current="";
-sections.forEach(section=>{
-const sectionTop=section.offsetTop-120;
-if(scrollY>=sectionTop){current=section.getAttribute("id")}
-});
-
-navLinks.forEach(a=>{
-a.classList.remove("active");
-if(a.getAttribute("href")==="#"+current){
-a.classList.add("active");
-}
-});
+sections.forEach(section=>{const sectionTop=section.offsetTop-120;if(scrollY>=sectionTop){current=section.getAttribute("id")}});
+navLinks.forEach(a=>{a.classList.remove("active");if(a.getAttribute("href")==="#"+current){a.classList.add("active")}});
 });
 
 /* SCROLL TO TOP */
 const topBtn=document.getElementById("topBtn");
-window.addEventListener("scroll",()=>{
-if(window.scrollY>500){topBtn.style.display="flex"}
-else{topBtn.style.display="none"}
-});
+window.addEventListener("scroll",()=>{if(window.scrollY>500){topBtn.style.display="flex"}else{topBtn.style.display="none"}});
 topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 
-/* LIVE NAVIGATION */
+/* DIRECTIONS BUTTON */
 document.getElementById("directionsBtn").addEventListener("click", function(e){
 e.preventDefault();
-
-const destination = "17.4435,78.3487";
-
+const destination = "Trendz Dwaraka, Plot No. 21 & 22, Sri Shyam Nagar, Telecom Nagar, Gachibowli, Hyderabad, Telangana 500032";
 if(navigator.geolocation){
 navigator.geolocation.getCurrentPosition(function(position){
-
 const lat = position.coords.latitude;
 const lng = position.coords.longitude;
-
-const mapsUrl = `https://www.google.com/maps/dir/${lat},${lng}/${destination}`;
-
+const mapsUrl = `https://www.google.com/maps/dir/${lat},${lng}/${encodeURIComponent(destination)}`;
 window.open(mapsUrl, "_blank");
-
 }, function(){
-window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, "_blank");
+window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`, "_blank");
 });
 }else{
-window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`, "_blank");
+window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`, "_blank");
 }
 });
 </script>
