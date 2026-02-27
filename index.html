@@ -43,14 +43,16 @@ nav a.active::after{content:"";position:absolute;bottom:-6px;left:0;width:100%;h
 .hero::before{width:300px;height:300px;background:#25D366;top:-80px;left:-80px;}
 .hero::after{width:400px;height:400px;background:#ff5c5c;bottom:-100px;right:-100px;}
 
-/* LOGO STRIP */
+/* LOGO STRIP WRAPPER */
 .logo-strip-wrapper{overflow:hidden;margin:50px 0;position:relative;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.08);}
 .logo-strip-wrapper::before,.logo-strip-wrapper::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;background:linear-gradient(to right, #f9fbfd 0%, rgba(249,251,253,0) 100%);}
 .logo-strip-wrapper::after{right:0;transform:rotateY(180deg);}
-.logo-strip{display:flex;width:max-content;animation:scrollLogo 40s linear infinite;will-change:transform;}
+
+/* LOGO STRIP - Infinite Scroll */
+.logo-strip{display:flex;will-change:transform;}
+.logo-strip .logo-group{display:flex;}
 .logo-strip img{height:60px;margin:0 40px;transition:transform .3s, box-shadow .4s;}
 .logo-strip img:hover{transform:scale(1.15);box-shadow:0 10px 25px rgba(0,0,0,0.2);}
-@keyframes scrollLogo{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
 /* SECTION */
 .section{padding:90px 8%;border-top:1px solid #eef2f7}
@@ -117,18 +119,22 @@ nav a.active::after{content:"";position:absolute;bottom:-6px;left:0;width:100%;h
 <!-- LOGO STRIP -->
 <div class="logo-strip-wrapper">
 <div class="logo-strip">
+<div class="logo-group">
 <img src="logo1.png" alt="Abbott">
 <img src="logo2.png" alt="Partner">
 <img src="logo3.png" alt="Partner">
 <img src="logo4.png" alt="Partner">
 <img src="logo5.png" alt="Partner">
 <img src="logo6.png" alt="Partner">
+</div>
+<div class="logo-group">
 <img src="logo1.png" alt="Abbott">
 <img src="logo2.png" alt="Partner">
 <img src="logo3.png" alt="Partner">
 <img src="logo4.png" alt="Partner">
 <img src="logo5.png" alt="Partner">
 <img src="logo6.png" alt="Partner">
+</div>
 </div>
 </div>
 
@@ -312,14 +318,23 @@ window.open(`https://www.google.com/maps/dir/?api=1&destination=${destination}`,
 }
 });
 
-// Scroll parallax for blobs and logo strip
+// Floating blobs parallax
 const hero = document.querySelector('.hero');
-const logoStrip = document.querySelector('.logo-strip');
 window.addEventListener('scroll', ()=>{
 let scrollY = window.scrollY;
 hero.style.setProperty('--blob-move', `${scrollY * 0.1}px`);
-logoStrip.style.transform = `translateX(${-scrollY*0.05}px)`;
 });
+
+// Logo strip infinite scroll
+const logoStrip=document.querySelector('.logo-strip');
+let scrollAmount=0;
+function animateLogoStrip(){
+scrollAmount+=0.3;
+if(scrollAmount>=logoStrip.scrollWidth/2) scrollAmount=0;
+logoStrip.style.transform=`translateX(${-scrollAmount}px)`;
+requestAnimationFrame(animateLogoStrip);
+}
+animateLogoStrip();
 </script>
 
 </body>
